@@ -9,7 +9,6 @@ return array(
     'modules' => array(
         'DoctrineModule',
         'DoctrineORMModule',
-        'DoctrineDataFixtureModule',
         'BjyAuthorize',
         'ZendDeveloperTools',
         'SlmMail',
