@@ -53,3 +53,26 @@ project and you should be ready to go! It should look something like below:
             Allow from all
         </Directory>
     </VirtualHost>
+
+Database Setup
+--------------
+
+Create an database on a mysql server. Import the SQL schema located in `./docs/schema.sql`.
+
+Edit the file `./config/autoload/global.php` and edit your doctrine configuration.
+```php
+    'doctrine' => array(
+        'connection' => array(
+            'orm_default' => array(
+                'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
+                    'params' => array(
+                    'host' => 'localhost',
+                    'port' => '3306',
+                    'user' => 'user',
+                    'password' => 'password123',
+                    'dbname' => 'modulus-exemple',
+                )
+            )
+        )
+    ),
+```
