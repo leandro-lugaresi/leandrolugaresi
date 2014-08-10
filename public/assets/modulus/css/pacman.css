@@ -1,0 +1,97 @@
+.tables_paginate ul {
+	float: right;
+    margin: 0;
+}
+
+.editable-inline {
+	margin: 20px 0 20px 0;
+}
+
+.editable-empty, .editable-empty:hover, .editable-empty:focus{
+  font-style: italic;
+  color: #000000 !important;
+  /* border-bottom: none; */
+  text-decoration: none;
+}
+
+.check-remember input[type="checkbox"]{
+	height: 15px;
+	width: 15px;
+}
+.navbar-brand{
+	width: 170px;
+}
+.modal-gallery .modal-dialog {
+	width: 898px;
+	height: 598px;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.btn-file > input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  margin: 0;
+  font-size: 23px;
+  cursor: pointer;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  transform: translate(-300px, 0) scale(4);
+
+  direction: ltr;
+}
+.fileselect {
+  display: inline-block;
+  margin-bottom: 9px;
+}
+.fileselect .form-control {
+  display: inline-block;
+  padding-top: 7px;
+  padding-bottom: 5px;
+  margin-bottom: 0;
+  vertical-align: middle;
+  cursor: text;
+}
+.fileselect .thumbnail {
+  display: inline-block;
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: middle;
+}
+.fileselect .thumbnail > img {
+  max-height: 100%;
+}
+.fileselect .btn {
+  vertical-align: middle;
+}
+.fileselect-exists .fileselect-new,
+.fileselect-new .fileselect-exists {
+  display: none;
+}
+.fileselect-inline .fileselect-controls {
+  display: inline;
+}
+.fileselect-filename {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.form-control .fileselect-filename {
+  vertical-align: bottom;
+}
+.fileselect-new .input-group .btn-file {
+  border-radius: 0 4px 4px 0;
+}
+.fileselect-new .input-group .btn-file.btn-xs,
+.fileselect-new .input-group .btn-file.btn-sm {
+  border-radius: 0 3px 3px 0;
+}
+.fileselect-new .input-group .btn-file.btn-lg {
+  border-radius: 0 6px 6px 0;
+}

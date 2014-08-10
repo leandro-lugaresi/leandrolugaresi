@@ -1,0 +1,67 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <?php
+        $children = $this->viewModel()->getCurrent()->getChildren();
+        $variables = $children[0]->getVariables();
+        if (isset($variables['entity']) && isset($variables['id'])) {
+            $metatags = $this->getMetatags(get_class($variables['entity']),$variables['id']);
+        }else{
+            $metatags = $this->getMetatags('','');
+        }
+        $this->headTitle()->setSeparator(' - ')->setAutoEscape(false);
+
+        foreach ($metatags['title'] as $title) {
+            $this->headTitle($title);
+        }
+        echo $this->headTitle();
+    ?>
+
+    <?php echo $this->headMeta()
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ->appendName('author',$metatags['author'])
+        ->appendName('description',$metatags['description'])
+        ->appendName('robots',$metatags['robots'])
+        ->appendHttpEquiv('Content-Type', 'text/html; charset=utf-8');
+    ?>
+
+    <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/png', 'href' => $this->basePath() . '/front/ico/favicon.png'))
+                    ->appendStylesheet($this->basePath() . '/front/css/bootstrap.css')
+                    ->appendStylesheet('http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic')
+                    ->appendStylesheet('http://fonts.googleapis.com/css?family=Raleway:400,300,700')
+                    ->appendStylesheet($this->basePath() . '/assets/modulus/plugins/x-editable/css/bootstrap-editable.css')
+                    ->appendStylesheet($this->basePath() . '/front/css/main.css');
+    ?>
+
+</head>
+
+<body data-spy="scroll" data-offset="0" data-target="#navigation">
+
+
+        <!-- Fixed navbar -->
+    <?php echo $this->renderMenu('header', 'front/layout/partials/navbar'); ?>
+    <?php $this->Notification(); ?>
+    <?php echo $this->content; ?>
+
+    <div id="c">
+        <div class="container">
+            <p>Template Created by <a href="http://www.blacktie.co">BLACKTIE.CO</a></p>
+        </div>
+    </div>
+    <?php
+    //adiciono os principais scripts com espaco para serem adicionados outros
+    echo $this->inlineScript()->prependFile('/front/js/smoothscroll.js')
+                        ->prependFile('/front/js/bootstrap.js')
+                        ->prependFile('/front/js/jquery.min.js');
+
+    ?>
+    <script>
+    $('.carousel').carousel({
+      interval: 3500
+    })
+    </script>
+</body>
+</html>

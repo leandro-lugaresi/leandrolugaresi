@@ -1,0 +1,79 @@
+<section id="home" name="home"></section>
+    <div id="headerwrap">
+        <div class="container">
+            <div class="row centered">
+                <div class="col-md-12">
+                    <h1>Bem-Vindo ao <b>Modulus</b></h1>
+                    <h3>Gerencie seu conteúdo com este maravilhoso sistema.</h3>
+                    <br>
+                </div>
+
+                <div class="col-md-2">
+                    <h5>Controle total do seu web site</h5>
+                    <p>Controle quem tem acesso as informações e fique sabendo sempre que alguma alteração for feita.</p>
+                    <img class="hidden-xs hidden-sm hidden-md" src="/front/img/arrow1.png">
+                </div>
+                <div class="col-md-8">
+                    <img class="img-responsive" src="/front/img/app-bg.png" alt="">
+                </div>
+                <div class="col-md-2">
+                    <br>
+                    <img class="hidden-xs hidden-sm hidden-md" src="/front/img/arrow2.png">
+                    <h5>Design responsivo</h5>
+                    <p>Layout pensado para funcionar em smartphones e tablets.</p>
+                </div>
+            </div>
+        </div> <!--/ .container -->
+    </div><!--/ #headerwrap -->
+
+    <!-- FEATURES WRAP -->
+    <div id="features">
+        <div class="container">
+        <?php foreach ($this->paginator as $post): ?>
+            <div class="row">
+                <h1 class="centered"><?php echo $post->getTitle(); ?></h1>
+                <br>
+                <br>
+                <?php
+                    $classText = 'col-md-offset-2 col-md-8';
+                    $config = $this->getConfigsTemplate(get_class($post),$post->getId());
+                ?>
+                <?php if (isset($config->imageHeader)): ?>
+                    <?php $classText = 'col-md-6'; ?>
+                    <div class="col-md-6 centered img-responsive">
+                        <img class="centered" src="<?php echo $config->imageHeader; ?>" alt="">
+                    </div>
+                <?php endif ?>
+
+                <div class="<?php echo $classText; ?>">
+                    <p>
+                        <?php echo $this->contentHelper()->abreviaString($post->getText(), 600); ?>
+                    </p>
+                    <a class="accordion-toggle" href="<?php echo $this->contentUrl($post); ?>">
+                        Acessar a postagem
+                    </a>
+                </div>
+            </div>
+            <hr>
+        <?php endforeach ?>
+        <?php echo $this->paginationControl($this->paginator,'Sliding','partials/paginator.phtml', array('urlName' => 'home')); ?>
+        </div><!--/ .container -->
+    </div><!--/ #features -->
+
+
+    <section id="contact" name="contact"></section>
+    <div id="footerwrap">
+        <div class="container">
+            <div class="col-md-5">
+                <h3>Endereço</h3>
+                <?php echo $this->contentInterface('endereco','texteditor','p'); ?>
+                <?php $this->inlineScript()->appendScript("$(function(){
+        $('.x-editable').editable();
+    });"); ?>
+            </div>
+
+            <div class="col-md-7">
+
+            </div>
+        </div>
+    </div>

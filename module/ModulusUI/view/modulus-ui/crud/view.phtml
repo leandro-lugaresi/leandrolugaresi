@@ -1,0 +1,58 @@
+<div class="row marketing">
+    <div class="panel panel-primary">
+	    <div class="panel-heading">
+	        <div class="panel-title">
+	            Detalhes do Registro
+	        </div>
+	    </div>
+	    <div class="panel-body">
+	        <dl class="dl-horizontal">
+	        	<?php
+	        		$viewOptions = $this->model->getViewOptions();
+	        		$arrayMap = (isset($viewOptions['entityMap'])) ? $viewOptions['entityMap'] : array() ;
+	        		foreach ($this->columns as $column){
+	        			if( isset($arrayMap[$column]) ){
+	        				if( is_array($arrayMap[$column]) ){
+	        					$method = 'get'. str_replace(' ', '', ucwords(str_replace('_', ' ', $column)) );
+		        				$value = $this->entity->$method();
+
+		        				if($value instanceof \DateTime ){
+		        					$value = $value->format('d-m-Y H:i:s');
+		        				}
+		        				$label = ucwords(str_replace('_', ' ', $column));
+	        					if (isset($arrayMap[$column]['map'])) {
+						            foreach ($arrayMap[$column]['map'] as $key => $mapValue) {
+						            	if (is_bool($value)) {
+						            		$value = (string)($value) ? 1 : 0;
+						                }
+						                if ($value === $key) {
+						                    $value = $mapValue;
+						                }
+						            }
+						        }
+						        if(isset($arrayMap[$column]['label'])){
+						        	$label = $arrayMap[$column]['label'];
+						        }
+		        				printf('<dt>%s:</dt><dd>%s</dd>', $label, $value );
+	        				}
+
+	        			}else{
+	        				$method = 'get'. str_replace(' ', '', ucwords(str_replace('_', ' ', $column)) );
+	        				$value = $this->entity->$method();
+	        				$label = ucwords(str_replace('_', ' ', $column));
+	        				if($value instanceof \DateTime ){
+	        					$value = $value->format('d-m-Y H:i:s');
+	        				}
+	        				printf('<dt>%s:	</dt><dd>%s</dd>', $label, $value );
+	        			}
+	        		}
+
+	        	?>
+	        </dl>
+	    </div>
+	    <div class="panel-footer">
+	        <a class="btn btn-warning btn-sm" href="<?php echo $this->url($this->updateRoute, array('id' => $this->entity->getId() )); ?>">Editar <?php echo $model->getDisplayName(); ?></a>
+	        <a class="btn btn-default btn-sm" href="<?php echo $this->url($this->readRoute); ?>">Voltar</a>
+	    </div>
+	</div>
+</div>

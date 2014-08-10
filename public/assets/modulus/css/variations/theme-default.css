@@ -1,0 +1,11 @@
+.panel-primary {
+	border-color: #191a1d;
+}
+.panel-primary .panel-heading {
+    color: #fff;
+    background-color: #595f69;
+    border-color: #191a1d;
+}
+.panel-primary .panel-body {
+    border-top: 2px solid #191a1d;
+}

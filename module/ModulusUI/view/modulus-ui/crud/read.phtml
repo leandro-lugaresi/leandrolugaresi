@@ -1,0 +1,42 @@
+ <?php
+	$datatable = $this->moduluscrud($this->name, $this->data, array('return_datatable' => true));
+	$options = $datatable->getOptions();
+?>
+<div class="row">
+    <div class="col-md-12">
+	    <div class="panel panel-primary">
+	        <div class="panel-heading">
+	            <div class="options">
+
+	            </div>
+	        </div>
+	        <div class="panel-body collapse in">
+	            <div class="row">
+	                <div class="col-sm-6">
+	                <?php if ($options->getShowNewButton()): ?>
+	                    <?php $route = ($options->getCreateRoute()) ? $options->getCreateRoute : $this->createRoute; ?>
+
+						<div class="panel">
+							<a class="btn btn-success" href="<?php echo $this->url($route); ?>">
+		                        <i class="glyphicon glyphicon-plus"></i> <span></span>
+		                    </a>
+						</div>
+	                <?php endif ?>
+	                </div>
+	            </div>
+				<div class="table-flipscroll">
+	            <?php echo $this->datatable()->renderHtml(
+	            								$datatable,
+	            								'crudTable',
+	            								array(
+	            									'class' => "table table-striped table-bordered datatables dataTable",
+	            									'cellspacing' => "0",
+	            									'cellpadding' => "0",
+	            									'border' => "0",
+	            								)); ?>
+	            <?php echo $this->datatable()->injectJs($datatable, 'crudTable'); ?>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
+</div>
