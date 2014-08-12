@@ -28,7 +28,7 @@
         "modulus/modulus-log": "dev-master",
         "modulus/modulus-mail": "dev-master",
         //"modulus/modulus-filemanager": "dev-master",
-        "modulus/interface-content": "0.0.*",
+        //"modulus/interface-content": "0.0.*",
         "modulus/modulus-products": "0.0.*",
         "modulus/modulus-content": "0.0.*",
         "gedmo/doctrine-extensions": "v2.3.9"

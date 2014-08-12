@@ -1,37 +1,37 @@
-<div id="navigation" class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><b>Modulus</b></a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <?php foreach ($this->itens as $key => $item): ?>
-                        <?php $url = (null == $item['siteContent']) ? $item['url'] : $this->contentUrl($item['siteContent']); ?>
-                        <?php if (empty($item['childrens'])): ?>
-                        <li class="">
-                            <a href="<?php echo $url; ?>" class="smothscroll"><?php echo $item['title']; ?></a>
-                        </li>
-                        <?php else: ?>
-                        <li class="dropdown">
-                            <a href="#" class="smothscroll dropdown-toggle" data-toggle="dropdown"><?php echo $item['title']; ?><span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                            <?php foreach ($item['childrens'] as $key => $cItem): ?>
-                                <?php $url = (null == $cItem['siteContent']) ? $cItem['url'] : $this->contentUrl($cItem['siteContent']); ?>
-                                <li class="">
-                                    <a href="<?php echo $url; ?>" class="smothscroll"><?php echo $cItem['title']; ?></a>
-                                </li>
-                            <?php endforeach ?>
-                            </ul>
-                        </li>
-                        <?php endif ?>
-
-                    <?php endforeach ?>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div>
+    <!-- NAVIGATION -->
+    <div class="nine columns">
+        <nav class="top-bar">
+            <ul>
+                <!-- RESPONSIVE NAVIGATION -->
+                <li class="name">
+                <h1><a href="#"> Please select your page</a></h1>
+                </li>
+                <li class="toggle-topbar"><a href="#"></a></li>
+                <!-- END RESPONSIVE NAVIGATION -->
+            </ul>
+        <section>
+            <ul class="right">
+                <?php foreach ($this->itens as $key => $item): ?>
+                    <?php $url = (null == $item['siteContent']) ? $item['url'] : $this->contentUrl($item['siteContent']); ?>
+                    <?php if (empty($item['childrens'])): ?>
+                    <li>
+                        <a href="<?php echo $url; ?>"><?php echo $item['title']; ?></a>
+                    </li>
+                    <?php else: ?>
+                    <li class="has-dropdown">
+                        <a href="#"><?php echo $item['title']; ?></a>
+                        <ul class="dropdown">
+                        <?php foreach ($item['childrens'] as $key => $cItem): ?>
+                            <?php $url = (null == $cItem['siteContent']) ? $cItem['url'] : $this->contentUrl($cItem['siteContent']); ?>
+                            <li>
+                                <a href="<?php echo $url; ?>"><?php echo $cItem['title']; ?></a>
+                            </li>
+                        <?php endforeach ?>
+                        </ul>
+                    </li>
+                    <?php endif ?>
+                <?php endforeach ?>
+            </ul>
+        </section>
+        </nav>
     </div>
