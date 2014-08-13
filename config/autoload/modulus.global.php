@@ -20,6 +20,14 @@ return array(
                     'form' => 'ModulusContent\Form\PagesTemplate',
                 ),
             ),
+            'ModulusContent\Controller\ContentController:3' => array(
+                'gallery' => true,
+                'metatags' => true,
+                'configTemplate' => array(
+                    'enable' => true,
+                    'form' => 'Front\Form\PortfolioTemplate',
+                ),
+            ),
             'ModulusProducts\Model\Products' => array(
                 'gallery' => true,
                 'metatags' => true,

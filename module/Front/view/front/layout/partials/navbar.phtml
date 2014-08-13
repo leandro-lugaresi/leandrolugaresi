@@ -1,37 +1,82 @@
-    <!-- NAVIGATION -->
-    <div class="nine columns">
-        <nav class="top-bar">
-            <ul>
-                <!-- RESPONSIVE NAVIGATION -->
-                <li class="name">
-                <h1><a href="#"> Please select your page</a></h1>
+	<nav class="collapse navbar-collapse pull-right">
+        <ul class="nav navbar-nav">
+        	<?php foreach ($this->itens as $key => $item): ?>
+                <?php $url = (null == $item['siteContent']) ? $item['url'] : $this->contentUrl($item['siteContent']); ?>
+                
+                <?php if (empty($item['childrens'])): ?>
+                <li>
+                    <a href="<?php echo $url; ?>"><?php echo $item['title']; ?></a>
                 </li>
-                <li class="toggle-topbar"><a href="#"></a></li>
-                <!-- END RESPONSIVE NAVIGATION -->
-            </ul>
-        <section>
-            <ul class="right">
-                <?php foreach ($this->itens as $key => $item): ?>
-                    <?php $url = (null == $item['siteContent']) ? $item['url'] : $this->contentUrl($item['siteContent']); ?>
-                    <?php if (empty($item['childrens'])): ?>
-                    <li>
-                        <a href="<?php echo $url; ?>"><?php echo $item['title']; ?></a>
-                    </li>
-                    <?php else: ?>
-                    <li class="has-dropdown">
-                        <a href="#"><?php echo $item['title']; ?></a>
-                        <ul class="dropdown">
-                        <?php foreach ($item['childrens'] as $key => $cItem): ?>
-                            <?php $url = (null == $cItem['siteContent']) ? $cItem['url'] : $this->contentUrl($cItem['siteContent']); ?>
-                            <li>
-                                <a href="<?php echo $url; ?>"><?php echo $cItem['title']; ?></a>
-                            </li>
-                        <?php endforeach ?>
+
+                <?php else: ?>
+                <li class="dropdown">
+                    <a href="#"  class="dropdown-toggle js-activated"><?php echo $item['title']; ?></a>
+                    <ul class="dropdown-menu">
+                    <?php foreach ($item['childrens'] as $key => $cItem): ?>
+                        <?php $url = (null == $cItem['siteContent']) ? $cItem['url'] : $this->contentUrl($cItem['siteContent']); ?>
+                        <?php if (empty($cItem['childrens'])): ?>
+                        <li>
+                            <a href="<?php echo $url; ?>"><?php echo $cItem['title']; ?></a>
+                        </li>
+
+                        <?php else: ?>
+		                <li class="dropdown-submenu">
+		                    <a href="#"><?php echo $cItem['title']; ?></a>
+		                    <ul class="dropdown-menu">
+		                    <?php foreach ($cItem['childrens'] as $key => $subItem): ?>
+		                        <?php $url = (null == $subItem['siteContent']) ? $subItem['url'] : $this->contentUrl($subItem['siteContent']); ?>
+		                        <li>
+		                            <a href="<?php echo $url; ?>"><?php echo $subItem['title']; ?></a>
+		                        </li>
+		                        
+		                    <?php endforeach ?>
+		                    </ul>
+		                </li>
+		                <?php endif ?>
+                    <?php endforeach ?>
+                    </ul>
+                </li>
+                <?php endif ?>
+
+            <?php endforeach ?>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle js-activated">Features</a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-submenu"><a href="#">Blog</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="blog.html">Medium Image Layout</a></li>
+                            <li><a href="blog2.html">Grid Blog</a></li>
+                            <li><a href="blog3.html">Grid Blog with Sidebar</a></li>
+                            <li><a href="blog4.html">Classic Blog</a></li>
+                            <li><a href="blog-post.html">Blog Post</a></li>
                         </ul>
                     </li>
-                    <?php endif ?>
-                <?php endforeach ?>
-            </ul>
-        </section>
-        </nav>
-    </div>
+                    <li class="dropdown-submenu"><a href="#">Portfolio Posts</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="portfolio-post.html">Post with Wide Slider</a></li>
+                            <li><a href="portfolio-post2.html">Post with Half Slider</a></li>
+                            <li><a href="portfolio-post3.html">Post with Carousel Gallery</a></li>
+                            <li><a href="portfolio-post4.html">Post with Multiple Images</a></li>
+                            <li><a href="portfolio-post5.html">Post with Half Images</a></li>
+                            <li><a href="portfolio-post6.html">Post with Fullscreen Slider</a></li>
+                            <li><a href="portfolio-post7.html">Post with Fullwidth Video</a></li>
+                            <li><a href="portfolio-post8.html">Post with Half Video</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="elements.html">Elements</a></li>
+                    <li><a href="headings.html">Headings</a></li>
+                    <li><a href="footer.html">Footer with Widgets</a></li>
+                    <li><a href="pricing.html">Pricing Table</a></li>
+                    <li><a href="fontello.html">Font Icons - Fontello</a></li>
+                    <li><a href="budicon.html">Font Icons - Budicon</a></li>
+                    <li><a href="http://www.weidea.net">More</a></li>
+                    <li><a href="shared on weidea.net">More</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>

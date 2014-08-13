@@ -15,6 +15,21 @@ class IndexController extends AbstractActionController
 
     public function indexAction()
     {
+        $this->getServiceLocator()
+            ->get('viewhelpermanager')
+            ->get('HeadScript')
+            ->appendFile('/front/rs-plugin/js/jquery.themepunch.plugins.min.js')
+            ->appendFile('/front/rs-plugin/js/jquery.themepunch.revolution.min.js');
+
+        $this->getServiceLocator()
+            ->get('viewhelpermanager')
+            ->get('InlineScript')->appendFile('/front/rs-plugin/js/slider.config.js');
+
+        $this->getServiceLocator()
+            ->get('viewhelpermanager')
+            ->get('headLink')
+            ->prependStylesheet('/front/rs-plugin/css/settings.css');
+
         $config = $this->modulusConfig()->getConfig('modulus_content');
         $repository = $this->getEntityManager()->getRepository('ModulusContent\Entity\SiteContent');
         $expr = $this->getEntityManager()->getExpressionBuilder();
