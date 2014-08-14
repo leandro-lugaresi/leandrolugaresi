@@ -59,7 +59,7 @@
                             <i class='icon-menu-1'></i>
                         </a>
                         <a class="navbar-brand" href="index.html">
-                            <img src="style/images/logo.png" alt="" data-src="style/images/logo.png" data-ret="style/images/logo@2x.png" class="retina" />
+                            <img src="/front/images/logo-icon.png" alt="" data-src="/front/images/logo-icon.png" data-ret="/front/images/logo-icon-retina.png" class="retina" />
                         </a>
                     </div>
                     <?php echo $this->renderMenu('header', 'front/layout/partials/navbar'); ?>
@@ -102,6 +102,8 @@
                         ->prependFile('/front/js/jquery.isotope.min.js')
                         ->prependFile('/front/js/owl.carousel.min.js')
                         ->prependFile('/front/js/jquery.easytabs.min.js')
+                        ->prependFile('/front/js/jquery.themepunch.plugins.min.js')
+                        ->prependFile('/front/js/jquery.themepunch.revolution.min.js')
                         ->prependFile('/front/js/twitter-bootstrap-hover-dropdown.min.js')
                         ->prependFile('/front/js/bootstrap.min.js')
                         ->prependFile('/front/js/jquery.min.js');
