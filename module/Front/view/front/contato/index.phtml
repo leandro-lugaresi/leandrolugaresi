@@ -1,0 +1,91 @@
+<div id="contact" class="section anchor">
+		<div class="dark-wrapper">
+			<div class="container inner">
+				<div class="thin text-center">
+					<h2 class="section-title text-center">Entre em contato!</h2>
+					<p class="lead main text-center"></p>
+					<p>Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia.</p>
+					<ul class="contact-info">
+						<li><i class="icon-location"></i>Moonshine St. 14/05 Light City </li>
+						<li><i class="icon-phone"></i>+00 (123) 456 78 90</li>
+						<li><i class="icon-mail"></i><a href="first.last@email.com">first.last@email.com</a> </li>
+					</ul>
+					<div class="divide50"></div>
+					<div class="form-container">
+						<div class="response alert alert-success"></div>
+						<form class="forms" action="contact/form-handler.php" method="post">
+							<fieldset>
+								<ol class="row">
+									<li class="form-row text-input-row name-field col-sm-6">
+										<input type="text" name="name" class="text-input defaultText required" title="Name (Required)"/>
+									</li>
+									<li class="form-row text-input-row email-field col-sm-6">
+										<input type="text" name="email" class="text-input defaultText required email" title="Email (Required)"/>
+									</li>
+									<li class="form-row text-area-row col-sm-12">
+										<textarea name="message" class="text-area required" title="Your message"></textarea>
+									</li>
+									<li class="form-row hidden-row">
+										<input type="hidden" name="hidden" value="" />
+									</li>
+									<li class="nocomment">
+										<label for="nocomment">Leave This Field Empty</label>
+										<input id="nocomment" value="" name="nocomment" />
+									</li>
+									<li class="button-row">
+										<input type="submit" value="Send Message" name="submit" class="btn btn-submit bm0" />
+									</li>
+								</ol>
+								<input type="hidden" name="v_error" id="v-error" value="Required" />
+								<input type="hidden" name="v_email" id="v-email" value="Enter a valid email" />
+							</fieldset>
+						</form>
+					</div>
+					<!-- /.form-container -->
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div id="map"></div>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1xdEVYy8IZdBKJGQp_QpDWaNQT7ZHGhY&sensor=false&extension=.js"></script>
+		<script>
+			google.maps.event.addDomListener(window, 'load', init);
+			var map;
+			function init() {
+				var mapOptions = {
+					center: new google.maps.LatLng(-29.283010, -51.493136),
+					zoom: 15,
+					zoomControl: true,
+					zoomControlOptions: {
+						style: google.maps.ZoomControlStyle.DEFAULT,
+					},
+					disableDoubleClickZoom: false,
+					mapTypeControl: true,
+					mapTypeControlOptions: {
+						style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+					},
+					scaleControl: true,
+					scrollwheel: false,
+					streetViewControl: true,
+					draggable : true,
+					overviewMapControl: false,
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					styles: [{stylers:[{saturation:-100},{gamma:1}]},{elementType:"labels.text.stroke",stylers:[{visibility:"off"}]},{featureType:"poi.business",elementType:"labels.text",stylers:[{visibility:"off"}]},{featureType:"poi.business",elementType:"labels.icon",stylers:[{visibility:"off"}]},{featureType:"poi.place_of_worship",elementType:"labels.text",stylers:[{visibility:"off"}]},{featureType:"poi.place_of_worship",elementType:"labels.icon",stylers:[{visibility:"off"}]},{featureType:"road",elementType:"geometry",stylers:[{visibility:"simplified"}]},{featureType:"water",stylers:[{visibility:"on"},{saturation:50},{gamma:0},{hue:"#50a5d1"}]},{featureType:"administrative.neighborhood",elementType:"labels.text.fill",stylers:[{color:"#333333"}]},{featureType:"road.local",elementType:"labels.text",stylers:[{weight:0.5},{color:"#333333"}]},{featureType:"transit.station",elementType:"labels.icon",stylers:[{gamma:1},{saturation:50}]}]
+				}
+
+				var mapElement = document.getElementById('map');
+				var map = new google.maps.Map(mapElement, mapOptions);
+				var locations = [
+					['R. Padre Arlindo Maçon, 106, RS, 95185-000', -29.283010, -51.493136]
+				];
+				for (i = 0; i < locations.length; i++) {
+					marker = new google.maps.Marker({
+						icon: '/front/images/map-pin.png',
+						position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+						map: map
+					});
+				}
+			}
+		</script>
+	</div>
+	<!-- /#contact -->

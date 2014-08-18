@@ -42,18 +42,18 @@ class IndexController extends AbstractActionController
                 ->setParameter(':sid' , $config['status_publicado']);
 
         $query->innerJoin('posts.type','t')
-                ->andWhere($expr->eq('t.name',':tname'))
-                ->setParameter(':tname' , 'Post');
+                ->andWhere($expr->eq('t.id',':tid'))
+                ->setParameter(':tid' , 3);//Portfolio
 
         $adapter = new DoctrineAdapter(new ORMPaginator($query));
         $paginator = new Paginator($adapter);
-        $paginator->setDefaultItemCountPerPage(10);
+        $paginator->setDefaultItemCountPerPage(15);
 
         $page = (int) $this->params()->fromRoute('page',1);
         if($page) $paginator->setCurrentPageNumber($page);
 
         return new ViewModel(array(
-                'paginator' => $paginator,
+                'portfolios' => $paginator,
                 'page' => $page,
             ));
 
