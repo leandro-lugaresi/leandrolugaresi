@@ -38,12 +38,21 @@ class PortfolioTemplate extends FormDefault
         ));
 
         $this->add(array(
-            'name' => 'galleryPosition',
+            'name' => 'date',
             'options' => array(
-                'label' => 'Posição da galeria: ',
+                'label' => 'Data do projeto: ',
+            ),
+            'type' => 'Zend\Form\Element\Date',
+        ));
+
+        $this->add(array(
+            'name' => 'galleryType',
+            'options' => array(
+                'label' => 'Tipo de galeria: ',
                 'value_options' => array(
-                    'top' => 'topo',
-                    'left' => 'esquerda',
+                    'wide' => 'Wide Slider',
+                    'fullscreen' => 'Fullscreen Slider',
+                    'half' => 'Half Slider',
                 ),
             ),
             'type' => 'Zend\Form\Element\Radio',

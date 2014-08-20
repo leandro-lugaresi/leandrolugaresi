@@ -1,6 +1,6 @@
 <?php $config = $this->getConfigsTemplate(get_class($this->entity),$this->entity->getId()); ?>
 <?php if (!empty($config->imageHeader)): ?>
-    <div class="intro-header" style="background: url(<?php echo $$config->imageHeader; ?>) no-repeat center center;">
+    <div class="intro-header" style="background: url(<?php echo $config->imageHeader; ?>) no-repeat center center;">
 
         <div class="container">
 
@@ -33,6 +33,7 @@
     </div><!--/ #features -->
 
     <?php $galleryItens = $this->getGallery(get_class($entity),$entity->getId()); ?>
+
     <?php if (!empty($galleryItens)): ?>
     <div id="showcase">
         <div class="container">

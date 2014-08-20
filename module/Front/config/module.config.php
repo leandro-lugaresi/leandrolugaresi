@@ -45,6 +45,7 @@ return array(
             'error/404' => __DIR__. '/../view/front/layout/error/404.phtml',
             'content/post' => __DIR__. '/../view/front/content/post.phtml',
             'content/page' => __DIR__. '/../view/front/content/page.phtml',
+            'content/portfolio' => __DIR__. '/../view/front/content/portfolio.phtml',
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',

@@ -4,9 +4,6 @@ namespace Front\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController,
     Zend\View\Model\ViewModel;
-use DoctrineORMModule\Paginator\Adapter\DoctrinePaginator as DoctrineAdapter;
-use Doctrine\ORM\Tools\Pagination\Paginator as ORMPaginator;
-use Zend\Paginator\Paginator;
 
 class IndexController extends AbstractActionController
 {
@@ -31,30 +28,14 @@ class IndexController extends AbstractActionController
             ->prependStylesheet('/front/rs-plugin/css/settings.css');
 
         $config = $this->modulusConfig()->getConfig('modulus_content');
-        $repository = $this->getEntityManager()->getRepository('ModulusContent\Entity\SiteContent');
-        $expr = $this->getEntityManager()->getExpressionBuilder();
-        $query = $repository->createQueryBuilder('posts')
-                    ->orderBy("posts.datePublished",  'DESC');
-        $query->where($expr->eq('posts.deleted',':deleted'))
-                ->setParameter(':deleted',false);
-        $query->innerJoin('posts.status','s')
-                ->andWhere($expr->eq('s.id',':sid'))
-                ->setParameter(':sid' , $config['status_publicado']);
-
-        $query->innerJoin('posts.type','t')
-                ->andWhere($expr->eq('t.id',':tid'))
-                ->setParameter(':tid' , 3);//Portfolio
-
-        $adapter = new DoctrineAdapter(new ORMPaginator($query));
-        $paginator = new Paginator($adapter);
-        $paginator->setDefaultItemCountPerPage(15);
-
-        $page = (int) $this->params()->fromRoute('page',1);
-        if($page) $paginator->setCurrentPageNumber($page);
+        $siteRepository = $this->getEntityManager()->getRepository('ModulusContent\Entity\SiteContent');
+        $categoryRepository = $this->getEntityManager()->getRepository('ModulusContent\Entity\ContentCategorys');
+        $portfolios = $siteRepository->findContent(3,$config['status_publicado'],array('deleted' => false));
+        $categorys = $categoryRepository->findCategorysByType(3);
 
         return new ViewModel(array(
-                'portfolios' => $paginator,
-                'page' => $page,
+                'portfolios' => $portfolios,
+                'categorys' => $categorys,
             ));
 
     }

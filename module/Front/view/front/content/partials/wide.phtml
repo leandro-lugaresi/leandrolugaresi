@@ -1,0 +1,49 @@
+<div class="container inner">
+    <?php $galleryItens = $this->getGallery(get_class($this->entity),$this->entity->getId()); ?>
+
+    <?php if (!empty($galleryItens)): ?>
+    <div class="owl-carousel portfolio-slider custom-controls">
+        <?php foreach ($galleryItens as $key => $item): ?>
+            <?php $item = $item->getFile(); ?>
+            <div class="item">
+                <?php if (in_array($item->getFiletype()->getName(), array('youtube', 'vimeo'))): ?>
+                    <iframe src="<?php echo $this->videoThumb()->getEmbed($item->getPath()); ?>" ></iframe>
+                <?php else: ?>
+                    <img src="<?php echo $this->imageThumb($item->getPath(),1170,650); ?>" alt="<?php echo $item->getTitle(); ?>" />
+                <?php endif ?>
+            </div>
+        <?php endforeach ?>
+    </div>
+    <div class="divide30"></div>
+    <?php endif; ?>
+
+    <h1 class="post-title"><?php echo $this->entity->getTitle(); ?></h1>
+    <div class="row">
+        <div class="col-sm-8">
+            <?php echo $this->entity->getText(); ?>
+            <a href="<?php echo $this->config->urlProject; ?>" class="btn">Ver o projeto</a>
+        </div>
+        <!-- /.col-sm-8 -->
+        <div class="col-sm-4 lp30">
+            <ul class="item-details">
+                <li>
+                    <h4>Date</h4>
+                    <?php echo $this->config->date; ?>
+                </li>
+                <li>
+                    <h4>Categories</h4>
+                    <?php foreach ($this->entity->getContentCategorys() as $category): ?>
+                        <?php echo $category->getName(). ' '; ?>
+                    <?php endforeach ?>
+                </li>
+                <li>
+                    <h4>Client</h4>
+                    <?php echo $this->config->client; ?>
+                </li>
+            </ul>
+        </div>
+        <!-- /.col-sm-4 -->
+    </div>
+    <!-- /.row -->
+
+</div>

@@ -75,17 +75,22 @@
 				<div class="grid-portfolio fix-portfolio">
 					<ul class="filter">
 						<li><a class="active" href="#" data-filter="*">All</a></li>
-						<li><a href="#" data-filter=".web">Web Design</a></li>
-						<li><a href="#" data-filter=".graphic">Graphic Design</a></li>
-						<li><a href="#" data-filter=".photo">Photography</a></li>
-						<li><a href="#" data-filter=".motion">Motion Design</a></li>
+						<?php foreach ($this->categorys as $category): ?>
+							<li><a href="#" data-filter=".<?php echo str_replace(' ', '-', $category->getName()); ?>"><?php echo $category->getName(); ?></a></li>
+						<?php endforeach ?>
 					</ul>
           			<!-- /filter -->
 
           			<ul class="content-slider items">
           				<?php foreach ($this->portfolios as $item): ?>
-          					<?php $config = $this->getConfigsTemplate(get_class($item),$item->getId()); ?>
-          					<li class="item thumb web">
+          					<?php
+          						$config = $this->getConfigsTemplate(get_class($item),$item->getId());
+          						$categorysClass = '';
+          						foreach ($item->getContentCategorys() as $category) {
+          							$categorysClass .= ' '.str_replace(' ', '-', $category->getName());
+          						}
+          					?>
+          					<li class="item thumb <?php echo $categorysClass; ?>">
 			              		<figure>
 				              		<a href="<?php echo $this->contentUrl($item); ?>" data-contenturl="<?php echo $this->contentUrl($item); ?>" data-callback="callPortfolioScripts();" data-contentcontainer=".pcw">
 				                	<div class="text-overlay">
@@ -94,7 +99,7 @@
 					                <img src="<?php echo $this->imageThumb($config->imageHeader,'384','288'); ?>" alt="" /> </a>
 				                </figure>
 				            </li>
-          				<?php endforeach ?>
+          				<?php endforeach; ?>
           			</ul>
           			<!-- /.items -->
         		</div>

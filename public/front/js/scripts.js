@@ -445,7 +445,7 @@ jQuery(document).ready(function($) {
                 nav:true,
                 navText: ['<i class="icon-left-open-big"></i>','<i class="icon-right-open-big"></i>'],
                 dots: true,
-                autoHeight: false,
+                autoHeight: true,
                 loop: true,
                 margin: 0,
                 navContainerClass: 'owl-slider-nav',

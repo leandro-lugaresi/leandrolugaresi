@@ -1,0 +1,48 @@
+<?php $galleryItens = $this->getGallery(get_class($this->entity),$this->entity->getId()); ?>
+<div class="container inner">
+    <div class="row">
+        <?php if (!empty($galleryItens)): ?>
+        <div class="col-md-8">
+            <div class="owl-carousel portfolio-slider custom-controls">
+                <?php foreach ($galleryItens as $key => $item): ?>
+                    <?php $item = $item->getFile(); ?>
+                    <div class="item">
+                        <?php if (in_array($item->getFiletype()->getName(), array('youtube', 'vimeo'))): ?>
+                            <iframe src="<?php echo $this->videoThumb()->getEmbed($item->getPath()); ?>" ></iframe>
+                        <?php else: ?>
+                            <img src="<?php echo $this->imageThumb($item->getPath(),770,530); ?>" alt="<?php echo $item->getTitle(); ?>" />
+                        <?php endif ?>
+                    </div>
+                <?php endforeach ?>
+            </div>
+        </div>
+        <?php endif; ?>
+        <!-- /.col-sm-8 -->
+        <div class="col-md-4 lp30">
+            <h1 class="post-title"><?php echo $this->entity->getTitle(); ?></h1>
+            <?php echo $this->entity->getText(); ?>
+
+            <ul class="item-details">
+            <li>
+                <li>
+                    <h4>Date</h4>
+                    <?php echo $this->config->date; ?>
+                </li>
+                <li>
+                    <h4>Categories</h4>
+                    <?php foreach ($this->entity->getContentCategorys() as $category): ?>
+                        <?php echo $category->getName(). ' '; ?>
+                    <?php endforeach ?>
+                </li>
+                <li>
+                    <h4>Client</h4>
+                    <?php echo $this->config->client; ?>
+                </li>
+            </ul>
+            <a href="<?php echo $this->config->urlProject; ?>" class="btn">Ver o projeto</a>
+        </div>
+        <!-- /.col-sm-4 -->
+    </div>
+    <!-- /.row -->
+
+</div>
