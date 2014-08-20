@@ -25,17 +25,17 @@
             <ul class="item-details">
             <li>
                 <li>
-                    <h4>Date</h4>
+                    <h4>Data</h4>
                     <?php echo $this->config->date; ?>
                 </li>
                 <li>
-                    <h4>Categories</h4>
+                    <h4>Categorias</h4>
                     <?php foreach ($this->entity->getContentCategorys() as $category): ?>
                         <?php echo $category->getName(). ' '; ?>
                     <?php endforeach ?>
                 </li>
                 <li>
-                    <h4>Client</h4>
+                    <h4>Cliente</h4>
                     <?php echo $this->config->client; ?>
                 </li>
             </ul>

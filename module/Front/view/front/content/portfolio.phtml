@@ -1,21 +1,33 @@
-<?php $config = $this->getConfigsTemplate(get_class($this->entity),$this->entity->getId()); ?>
+<?php
+        $config = $this->getConfigsTemplate(get_class($this->entity),$this->entity->getId());
+        $url = $this->url('home', array(), array('force_canonical' => true));
+        $url = substr($url, 0,-1);
+
+        $this->headMeta()
+        ->appendProperty('og:title', $this->entity->getTitle())
+        ->appendProperty('og:description', 'Um belo projeto feito com muito amor e dedicação! :D')
+        ->appendProperty('og:image', $url.$config->imageHeader);
+
+    ?>
     <div class="offset"></div>
     <div class="pcw">
         <?php echo $this->partial('front/content/partials/'.$config->galleryType, array('config' => $config, 'entity' => $this->entity)); ?>
-        <div class="dark-wrapper">
-            <div class="container inner text-center">
-                <h1 class="share-button">Click <span class="colored">&</span> Share the Love</h1>
-                <div class="share-links">
-                    <ul>
-                        <li><a class="btn share-facebook" href="#">Like</a></li>
-                        <li><a class="btn share-twitter" href="#">Tweet</a></li>
-                        <li><a class="btn share-pinterest" href="#">Pin it</a></li>
-                    </ul>
-                </div>
-                <!-- /.share-links -->
-            </div>
-            <!-- /.container -->
-        </div>
-        <!-- /.dark-wrapper -->
     </div>
     <!-- /.pcw -->
+    <div class="dark-wrapper">
+        <div class="container inner text-center">
+            <h1 class="share-button">Click <span class="colored">&</span> Share the Love</h1>
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+            <div class="addthis_sharing_toolbox"></div>
+            <!-- <div class="share-links">
+                <ul>
+                    <li><a class="btn share-facebook" href="#">Like</a></li>
+                    <li><a class="btn share-twitter" href="#">Tweet</a></li>
+                    <li><a class="btn share-pinterest" href="#">Pin it</a></li>
+                </ul>
+            </div> -->
+            <!-- /.share-links -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.dark-wrapper -->
