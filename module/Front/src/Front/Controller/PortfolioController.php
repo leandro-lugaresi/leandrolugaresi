@@ -15,7 +15,7 @@ class PortfolioController extends AbstractActionController
         $config = $this->modulusConfig()->getConfig('modulus_content');
         $siteRepository = $this->getEntityManager()->getRepository('ModulusContent\Entity\SiteContent');
         $categoryRepository = $this->getEntityManager()->getRepository('ModulusContent\Entity\ContentCategorys');
-        $portfolios = $siteRepository->findContent(3,$config['status_publicado'],array('deleted' => false));
+        $portfolios = $siteRepository->findContent(3,$config['status-publicado'],array('deleted' => false));
         $categorys = $categoryRepository->findCategorysByType(3);
 
         return new ViewModel(array(

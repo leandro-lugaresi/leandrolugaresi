@@ -26,7 +26,7 @@ class BlogController extends AbstractActionController
                     ->andWhere($expr->eq('s.id',':sid'))
                     ->andWhere($expr->eq('t.name',':tname'))
                     ->orderBy("posts.datePublished",  'DESC')
-                    ->setParameter(':sid' , $config['status_publicado'])
+                    ->setParameter(':sid' , $config['status-publicado'])
                     ->setParameter(':tname' , 'Post')
                     ->setParameter(':deleted',false);
 

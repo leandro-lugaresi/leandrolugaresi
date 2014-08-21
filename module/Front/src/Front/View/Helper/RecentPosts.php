@@ -18,7 +18,7 @@ class RecentPosts extends AbstractHelper
 
     public function __invoke($template)
     {
-        $posts = $this->repository->findContent(1, $this->config['status_publicado'], array('deleted' => false),array('datePublished'=>'DESC'),4);
+        $posts = $this->repository->findContent(1, $this->config['status-publicado'], array('deleted' => false),array('datePublished'=>'DESC'),4);
         $vm = new ViewModel(array('posts' => $posts));
         $vm->setTemplate($template);
 
