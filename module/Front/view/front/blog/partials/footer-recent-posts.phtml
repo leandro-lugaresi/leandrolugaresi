@@ -1,0 +1,17 @@
+<div class="col-sm-4">
+    <div class="widget">
+        <h3 class="widget-title">Postagens recentes</h3>
+        <ul class="post-list">
+        <?php foreach ($this->posts as $post): ?>
+            <?php $config = $this->getConfigsTemplate(get_class($post),$post->getId()); ?>
+            <li>
+                <h6><a href="<?php echo $this->contentUrl($post); ?>"><?php echo $post->getTitle(); ?></a></h6>
+                <em><?php echo $post->getDatePublished()->format('d-m-Y'); ?></em>
+            </li>
+        <?php endforeach ?>
+        </ul>
+        <!-- /.post-list -->
+    </div>
+    <!-- /.widget -->
+</div>
+<!-- /col -->

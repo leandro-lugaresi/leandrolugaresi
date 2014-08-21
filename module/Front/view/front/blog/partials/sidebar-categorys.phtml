@@ -1,0 +1,31 @@
+<div class="sidebox widget">
+    <div class="section-title">
+        <h3 class="widget-title">Categorias</h3>
+    </div>
+    <ul class="circled">
+    <?php foreach ($categorys as $category): ?>
+        <li><a href="<?php echo $this->url('home/blog', array('category' => str_replace(' ', '-', $category[0]->getName())) ); ?>"><?php echo $category[0]->getName(). ' ('.$category['total']. ')'; ?></a></li>
+    <?php endforeach ?>
+    </ul>
+</div>
+<!-- /.widget -->
+<!-- <div class="sidebox widget">
+    <div class="section-title">
+        <h3 class="widget-title">Tags</h3>
+    </div>
+    <ul class="tag-list">
+        <li><a href="#">Web</a></li>
+        <li><a href="#">Photography</a></li>
+        <li><a href="#">Illustation</a></li>
+        <li><a href="#">Fun</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Design</a></li>
+        <li><a href="#">Inspiration</a></li>
+        <li><a href="#">Tips</a></li>
+        <li><a href="#">Manipulation</a></li>
+        <li><a href="#">Graphic</a></li>
+        <li><a href="#">Travel</a></li>
+        <li><a href="#">Concept</a></li>
+        <li><a href="#">Print</a></li>
+    </ul>
+</div> -->

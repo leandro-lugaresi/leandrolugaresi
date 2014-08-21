@@ -698,7 +698,7 @@ jQuery(window).scroll(function() {
 var widgetFeed = new Instafeed({
 		target: 'instawidget',
         get: 'user',
-        limit: 6,
+        limit: 8,
         userId: 186643039,
         accessToken: '186643039.51524ec.c5df5476b2654a349ac19e6361f93159',
         resolution: 'thumbnail',

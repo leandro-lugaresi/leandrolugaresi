@@ -397,7 +397,7 @@ footer .post-list li em {
 #instawidget li {
     float: left;
     margin: 0 0 6px 0;
-    width: 33.33339%;
+    width: 25%;
     padding-left: 6px;
     position: relative;
 }
@@ -2623,6 +2623,12 @@ ul.tag-list li a:hover {
 .pagination ul > .active > span {
     color: #549dc5 !important;
     border: 1px solid #549dc5;
+}
+.pagination ul > .disabled > span,
+.pagination ul > .disabled > a,
+.pagination ul > .disabled > a:hover,
+.pagination ul > .disabled > a:focus {
+  cursor: not-allowed;
 }
 /*-----------------------------------------------------------------------------------*/
 /*	27. AUTHOR

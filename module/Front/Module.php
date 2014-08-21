@@ -18,4 +18,36 @@ class Module
             ),
         );
     }
+
+    public function getViewHelperConfig()
+    {
+        return array(
+            'factories' => array(
+                'recentPosts' => function ($sm) {
+                    $serviceLocator = $sm->getServiceLocator();
+                    $entityManager = $serviceLocator->get('Doctrine\ORM\EntityManager');
+                    $configService = $serviceLocator->get('ModulusConfig\Service\Config');
+
+                    $helper = new View\Helper\RecentPosts(
+                        $entityManager->getRepository('ModulusContent\Entity\SiteContent'),
+                        $configService->getConfig('modulus_content')
+                    );
+
+                    return $helper;
+                },
+                'sidebarCategorys' => function ($sm) {
+                    $serviceLocator = $sm->getServiceLocator();
+                    $entityManager = $serviceLocator->get('Doctrine\ORM\EntityManager');
+                    $configService = $serviceLocator->get('ModulusConfig\Service\Config');
+
+                    $helper = new View\Helper\SidebarCategorys(
+                        $entityManager->getRepository('ModulusContent\Entity\ContentCategorys')
+                    );
+
+                    return $helper;
+                },
+            ),
+        );
+    }
+
 }

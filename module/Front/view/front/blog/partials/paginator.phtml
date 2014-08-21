@@ -1,0 +1,35 @@
+<?php
+    $url = (isset($urlName)) ? $urlName : 'home/default' ;
+    if ($this->pageCount && count($this->pagesInRange) > 1):
+?>
+<div class="pagination">
+    <ul>
+        <li class="<?php echo (isset($this->previous)) ? '' : 'disabled'; ?>"><a href="<?php echo $this->url($url,array('page' => $this->previous),FALSE,TRUE); ?>" title="Anterior">Prev</a></li>
+
+    <?php if ($this->current > 3 && $this->pageCount > count($this->pagesInRange)): ?>
+        <li><a href="<?php echo $this->url($url,array('page' => 1),FALSE,TRUE); ?>" title="Página 1">1</a></li>
+    <?php endif; ?>
+
+    <?php if ($this->current >= count($this->pagesInRange) && $this->pageCount > count($this->pagesInRange)): ?>
+        <li><a href="<?php echo $this->url($url,array('page' => $this->current - 3),FALSE,TRUE); ?>" title="Páginas Anteriores">...</a></li>
+    <?php endif; ?>
+
+    <?php foreach ($this->pagesInRange as $page): ?>
+        <li class="<?php echo ($page != $this->current) ? '' : 'active'; ?>">
+            <a href="<?php echo $this->url($url,array('page' => $page),FALSE,TRUE); ?>" title="Página <?php echo $page; ?>"><?php echo $page; ?></a>
+        </li>
+    <?php endforeach; ?>
+
+    <?php if ($this->current < $this->pageCount - 3 && $this->pageCount > count($this->pagesInRange)): ?>
+        <li><a href="<?php echo $this->url($url,array('page' => $this->current + 3),FALSE,TRUE); ?>" title="Páginas Posteriores">...</a></li>
+    <?php endif; ?>
+
+    <?php if($this->current < $this->pageCount - 2  && $this->pageCount > count($this->pagesInRange)): ?>
+        <li><a href="<?php echo $this->url($url,array('page' => $pageCount),FALSE,TRUE); ?>" title="Página <?php echo $this->pageCount; ?>"><?php echo $this->pageCount; ?></a></li>
+    <?php endif; ?>
+
+        <li class="<?php echo (isset($this->next)) ? '' : 'disabled'; ?>"><a href="<?php echo (isset($this->next)) ? $this->url($url,array('page' => $this->next),FALSE,TRUE) : '#'; ?>" title="Próxima">Next</a></li>
+
+    </ul>
+</div>
+<?php endif; ?>

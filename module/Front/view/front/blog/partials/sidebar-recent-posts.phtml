@@ -1,0 +1,22 @@
+<div class="sidebox widget">
+    <div class="section-title">
+        <h3 class="widget-title">Postagens recentes</h3>
+    </div>
+    <ul class="post-list">
+    <?php foreach ($this->posts as $post): ?>
+        <?php $config = $this->getConfigsTemplate(get_class($post),$post->getId()); ?>
+        <li>
+            <div class="icon-overlay">
+                <a href="<?php echo $this->contentUrl($post); ?>">
+                    <img src="<?php echo $this->imageThumb($config->imageHeader, 70, 70); ?>" alt="" />
+                </a>
+            </div>
+            <div class="meta">
+                <h6><a href="<?php echo $this->contentUrl($post); ?>"><?php echo $post->getTitle(); ?></a></h6>
+                <em><?php echo $post->getDatePublished()->format('d-m-Y'); ?></em>
+            </div>
+        </li>
+    <?php endforeach ?>
+    </ul>
+    <!-- /.post-list -->
+</div>

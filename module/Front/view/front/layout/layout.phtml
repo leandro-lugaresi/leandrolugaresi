@@ -88,44 +88,9 @@
                         <!-- /.widget -->
                     </div>
                     <!-- /col -->
+                    <?php echo $this->recentPosts('front/blog/partials/footer-recent-posts'); ?>
 
-                    <div class="col-sm-3">
-                        <div class="widget">
-                            <h3 class="widget-title">Popular Posts</h3>
-                            <ul class="post-list">
-                                <li>
-                                    <h6><a href="blog-post.html">Vivamus sagittis lacus vel augue</a></h6>
-                                    <em>3th Oct 2012</em>
-                                </li>
-                                <li>
-                                    <h6><a href="blog-post.html">Scelerisque nisl consectetur et</a></h6>
-                                    <em>28th Sep 2012</em>
-                                </li>
-                                <li>
-                                    <h6><a href="blog-post.html">Pellentesque ornare sem lacinia</a></h6>
-                                    <em>15th Aug 2012</em>
-                                </li>
-                            </ul>
-                            <!-- /.post-list -->
-                        </div>
-                        <!-- /.widget -->
-                    </div>
-                    <!-- /col -->
-
-                    <div class="col-sm-3">
-                        <div class="widget">
-                            <h3 class="widget-title">Get in Touch</h3>
-                            <p>Fusce dapibus, tellus commodo, tortor mauris condimentum utellus fermentum, porta sem malesuada magna. Sed posuere consectetur est at lobortis.</p>
-                            <div class="contact-info">
-                                <i class="icon-location"></i> Moonshine St. 14/05 Light City <br />
-                                <i class="icon-phone"></i>+00 (123) 456 78 90 <br />
-                                <i class="icon-mail"></i> <a href="first.last@email.com">first.last@email.com</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /col -->
-
-                    <div class="col-sm-3">
+                    <div class="col-sm-5">
                         <div class="widget">
                             <h3 class="widget-title">Instagram</h3>
                             <div class="instagram-widget">
@@ -146,13 +111,7 @@
                 <div class="container">
                     <p class="pull-left">© 2014 Frost. All rights reserved. Theme by <a href="http://elemisfreebies.com">elemis</a>.</p>
                     <ul class="social pull-right">
-                        <li><a href="#"><i class="icon-s-rss"></i></a></li>
-                        <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-                        <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-                        <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
-                        <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
-                        <li><a href="#"><i class="icon-s-instagram"></i></a></li>
-                        <li><a href="#"><i class="icon-s-vimeo"></i></a></li>
+                        <?php echo $this->partial('front/layout/partials/social-block'); ?>
                     </ul>
                 </div>
             </div>
@@ -178,7 +137,18 @@
                         ->prependFile('/front/js/twitter-bootstrap-hover-dropdown.min.js')
                         ->prependFile('/front/js/bootstrap.min.js')
                         ->prependFile('/front/js/jquery.min.js');
-
     ?>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'leandrolugaresi'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
 </body>
 </html>

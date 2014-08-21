@@ -9,7 +9,7 @@ return array(
             'home' => array(
                 'type' => 'Segment',
                 'options' => array(
-                    'route'    => '/[page/:page]',
+                    'route'    => '/',
                     'constraints' => array(
                         'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
@@ -25,6 +25,38 @@ return array(
                 ),
                 'may_terminate' => true,
                 'child_routes' => array(
+                    'projetos' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route'    => 'projetos',
+                            'constraints' => array(
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id'     => '[0-9]+',
+                                'params' => '(.*)'
+                            ),
+                            'defaults' => array(
+                                'controller' => 'Front\Controller\Portfolio',
+                                'action'     => 'index',
+                            ),
+                        ),
+                    ),
+                    'blog' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route'    => 'blog[/category/:category][/page/:page]',
+                            'constraints' => array(
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'category'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id'     => '[0-9]+',
+                                'page'     => '[0-9]+',
+                                'params' => '(.*)'
+                            ),
+                            'defaults' => array(
+                                'controller' => 'Front\Controller\Blog',
+                                'action'     => 'index',
+                            ),
+                        ),
+                    ),
                 ),
             ),
 
@@ -33,9 +65,9 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Front\Controller\Index' => 'Front\Controller\IndexController',
-            'Front\Controller\Status' => 'Front\Controller\StatusController',
-            'Front\Controller\Post' => 'Front\Controller\PostController',
-            'Front\Controller\Page' => 'Front\Controller\PageController',
+            'Front\Controller\Contato' => 'Front\Controller\ContatoController',
+            'Front\Controller\Portfolio' => 'Front\Controller\PortfolioController',
+            'Front\Controller\Blog' => 'Front\Controller\BlogController',
         )
     ),
     'view_manager' => array(

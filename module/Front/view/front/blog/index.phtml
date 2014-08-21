@@ -1,0 +1,76 @@
+<div class="offset"></div>
+<div class="light-wrapper">
+    <div class="container inner">
+        <div class="row">
+            <div class="col-sm-8 content">
+                <div class="blog-posts grid-blog col2">
+                <?php foreach ($this->paginator as $post): ?>
+                    <?php
+                        $config = $this->getConfigsTemplate(get_class($post),$post->getId());
+                    ?>
+                    <div class="post">
+                        <figure class="main">
+                            <a href="<?php echo $this->contentUrl($post); ?>">
+                            <div class="text-overlay">
+                                <div class="info">Read More</div>
+                            </div>
+                            <img src="<?php echo $this->imageThumb($config->imageHeader, 370, 370); ?>" alt="" /></a>
+                        </figure>
+                        <div class="post-content">
+                            <h2 class="post-title"><a href="<?php echo $this->contentUrl($post); ?>"><?php echo $post->getTitle(); ?></a></h2>
+                            <div class="meta">
+                                <span class="date"><?php echo $post->getDatePublished()->format('d-m-Y'); ?></span>
+                                <span class="categories">
+                                    <?php $first = true; ?>
+                                    <?php foreach ($post->getContentCategorys() as $category): ?>
+                                        <?php echo (!$first) ? ', ' : ''; ?><a href="<?php echo $this->url('home/blog', array('category' =>  str_replace(' ', '-', $category->getName()) )); ?>"><?php echo $category->getName() ?></a>
+                                        <?php $first = false; ?>
+                                    <?php endforeach ?>
+                                </span>
+                                <span class="comments"><a href="<?php echo $this->contentUrl($post); ?>#disqus_thread">0 Comment</a></span>
+                            </div>
+                            <p><?php echo $this->contentHelper()->abreviaString($post->getText(), 300); ?></p>
+                            <a href="<?php echo $this->contentUrl($post); ?>" class="more">Continue Reading</a>
+                        </div>
+                    </div>
+                    <hr />
+                <?php endforeach ?>
+                </div>
+                <!-- /.blog-posts -->
+                <?php echo $this->paginationControl($this->paginator,'Sliding','front/blog/partials/paginator.phtml', array('urlName' => 'home/blog')); ?>
+                <!-- /.pagination -->
+
+            </div>
+            <!-- /.content -->
+            <aside class="col-sm-4 sidebar lp30">
+                <div class="sidebox widget">
+                    <form class="searchform" method="get">
+                        <input type="text" id="s2" name="s" value="type and hit enter" onfocus="this.value=''" onblur="this.value='type and hit enter'"/>
+                    </form>
+                </div>
+                <!-- /.widget -->
+                <?php echo $this->recentPosts('front/blog/partials/sidebar-recent-posts'); ?>
+                <!-- /.widget -->
+                <div class="sidebox widget">
+                    <div class="section-title">
+                        <h3 class="widget-title">Também estou aqui</h3>
+                    </div>
+                    <p>Se quiser entrar em contato comigo ou saber o que estou fazendo, acesse os meus perfis em redes sociais.</p>
+                    <ul class="social">
+                        <?php echo $this->partial('front/layout/partials/social-block'); ?>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- /.widget -->
+
+                <?php echo $this->sidebarCategorys(); ?>
+                <!-- /.widget -->
+            </aside>
+            <!-- /.col-sm-4 .sidebar -->
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.light-wrapper -->
