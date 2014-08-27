@@ -29,6 +29,7 @@ return array(
         'SlmGoogleAnalytics',
         'ModulusCEO',
         'ModulusCache',
+        'ModulusContact',
         'Front',
     ),
     'service_manager' => array('factories' => array('Navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory')),

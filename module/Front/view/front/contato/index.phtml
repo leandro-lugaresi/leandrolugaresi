@@ -1,45 +1,25 @@
-<div id="contact" class="section anchor">
+	<div id="contact" class="section anchor">
 		<div class="dark-wrapper">
 			<div class="container inner">
 				<div class="thin text-center">
 					<h2 class="section-title text-center">Entre em contato!</h2>
 					<p class="lead main text-center"></p>
-					<p>Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia.</p>
+					<p>Estou sempre online. Se precisar falar comigo, escolha alguma das opções abaixo e inicie a conversa, você não vai se arrepender! ;)</p>
 					<ul class="contact-info">
-						<li><i class="icon-location"></i>Moonshine St. 14/05 Light City </li>
-						<li><i class="icon-phone"></i>+00 (123) 456 78 90</li>
-						<li><i class="icon-mail"></i><a href="first.last@email.com">first.last@email.com</a> </li>
+						<li><i class="icon-mail"></i><a href="mailto:leandrolugaresi92@gmail.com">leandrolugaresi92@gmail.com</a> </li>
+						<li><i class="icon-phone"></i>+55 (54) 9975 5458</li>
+						<li><i class="icon-s-skype"></i>leandrolugaresi</li>
 					</ul>
 					<div class="divide50"></div>
 					<div class="form-container">
 						<div class="response alert alert-success"></div>
-						<form class="forms" action="contact/form-handler.php" method="post">
-							<fieldset>
-								<ol class="row">
-									<li class="form-row text-input-row name-field col-sm-6">
-										<input type="text" name="name" class="text-input defaultText required" title="Name (Required)"/>
-									</li>
-									<li class="form-row text-input-row email-field col-sm-6">
-										<input type="text" name="email" class="text-input defaultText required email" title="Email (Required)"/>
-									</li>
-									<li class="form-row text-area-row col-sm-12">
-										<textarea name="message" class="text-area required" title="Your message"></textarea>
-									</li>
-									<li class="form-row hidden-row">
-										<input type="hidden" name="hidden" value="" />
-									</li>
-									<li class="nocomment">
-										<label for="nocomment">Leave This Field Empty</label>
-										<input id="nocomment" value="" name="nocomment" />
-									</li>
-									<li class="button-row">
-										<input type="submit" value="Send Message" name="submit" class="btn btn-submit bm0" />
-									</li>
-								</ol>
-								<input type="hidden" name="v_error" id="v-error" value="Required" />
-								<input type="hidden" name="v_email" id="v-email" value="Enter a valid email" />
-							</fieldset>
-						</form>
+						<?php
+							$form = $this->form;
+
+							$form->setAttribute('class', 'forms');
+							$form->prepare();
+							echo $this->formtwb($form);
+						?>
 					</div>
 					<!-- /.form-container -->
 					<div class="clearfix"></div>

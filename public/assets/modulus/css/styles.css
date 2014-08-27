@@ -8982,7 +8982,7 @@ body.collapse-leftbar #search.keep-open form button[type="submit"] {
 }
 .panel-chat {
     margin-bottom: 20px;
-    height: 700px;
+    max-height: 700px;
     overflow-y: auto;
 }
 .panel-chat .chat-message {

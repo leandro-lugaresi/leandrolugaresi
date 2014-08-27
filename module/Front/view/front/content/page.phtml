@@ -1,76 +1,37 @@
-<?php $config = $this->getConfigsTemplate(get_class($this->entity),$this->entity->getId()); ?>
-<?php if (!empty($config->imageHeader)): ?>
-    <div class="intro-header" style="background: url(<?php echo $config->imageHeader; ?>) no-repeat center center;">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message">
-                        <h1 <?php echo (!empty($config->colorHeader)) ? 'style="color: '.$config->colorHeader.'"' : '' ; ?>><?php echo $this->entity->getTitle(); ?></h1>
-                    </div>
-                </div>
-            </div>
-
+<div class="light-wrapper">
+    <div class="container inner">
+        <div class="row">
+            <?php $config = $this->getConfigsTemplate(get_class($this->entity),$this->entity->getId()); ?>
+            <?php if (!empty($config->imageHeader)): ?>
+            <figure class="main">
+                <img src="<?php echo $config->imageHeader; ?>" alt="">
+            </figure>
+            <?php endif ?>
+            <h2 class="section-title text-center"><?php echo $this->entity->getTitle(); ?></h2>
+            <?php echo $this->entity->getText(); ?>
         </div>
-        <!-- /.container -->
-    </div>
-<?php endif ?>
-    <!-- /.intro-header -->
-    <div id="features">
-        <div class="container">
-            <div class="row">
-                <?php if (empty($config->imageHeader)): ?>
-                <h1 class="centered"><?php echo $this->entity->getTitle(); ?></h1>
-                <?php endif; ?>
-                <br>
-                <br>
-                <div class="col-md-offset-2 col-md-8">
-                    <?php echo $this->entity->getText(); ?>
-                </div>
-            </div>
-        </div><!--/ .container -->
-    </div><!--/ #features -->
-
-    <?php $galleryItens = $this->getGallery(get_class($entity),$entity->getId()); ?>
-    <?php if (!empty($galleryItens)): ?>
-    <div id="showcase">
-        <div class="container">
-            <div class="row">
-                <h1 class="centered">Galeria</h1>
-                <br>
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div id="carousel-example-generic" class="carousel slide">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                        <?php $first = true; ?>
-                        <?php foreach ($galleryItens as $key => $item): ?>
-                            <li data-target="#carousel-example-generic" data-slide-to="<?php echo $key; ?>" class="<?php echo ($first) ? 'active' : ''; ?>"></li>
-                            <?php $first = false; ?>
-                        <?php endforeach ?>
-                        </ol>
-
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                        <?php $first = true; ?>
-                        <?php foreach ($galleryItens as $key => $item): ?>
-                            <?php $item = $item->getFile(); ?>
-                            <div class="item <?php echo ($first) ? 'active' : ''; ?>">
-                                <?php if (in_array($item->getFiletype()->getName(), array('youtube', 'vimeo'))): ?>
-                                    <iframe src="<?php echo $this->videoThumb()->getEmbed($item->getPath()); ?>" width="750" height="421"></iframe>
-                                <?php else: ?>
-                                    <img src="<?php echo $this->imageThumb($item->getPath(),750,431); ?>" alt="<?php echo $item->getTitle(); ?>">
-                                <?php endif ?>
-                            </div>
-                        <?php $first = false; ?>
-                        <?php endforeach ?>
+        <!-- /.row -->
+        <?php $galleryItens = $this->getGallery(get_class($entity),$entity->getId()); ?>
+        <?php if (!empty($galleryItens)): ?>
+            <div class="divide20"></div>
+            <div class="inner tp0">
+                <div class="carousel-gallery-wrapper">
+                    <div class="carousel-gallery custom-controls">
+                    <?php foreach ($galleryItens as $key => $item): ?>
+                        <?php $item = $item->getFile(); ?>
+                        <div class="item">
+                        <?php if (in_array($item->getFiletype()->getName(), array('youtube', 'vimeo'))): ?>
+                            <iframe src="<?php echo $this->videoThumb()->getEmbed($item->getPath()); ?>" width="700" height="500"></iframe>
+                        <?php else: ?>
+                            <img src="<?php echo $this->imageThumb($item->getPath(),700,500); ?>" alt="<?php echo $item->getTitle(); ?>">
+                        <?php endif ?>
                         </div>
+                    <?php endforeach ?>
                     </div>
                 </div>
             </div>
-            <br>
-            <br>
-            <br>
-        </div><!-- /container -->
+        <?php endif ?>
     </div>
-    <?php endif ?>
+    <!-- /.container -->
+</div>
+<!-- /.light-wrapper -->

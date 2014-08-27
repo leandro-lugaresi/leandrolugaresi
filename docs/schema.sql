@@ -2,8 +2,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-CREATE SCHEMA IF NOT EXISTS `pacman` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `pacman` ;
 
 -- -----------------------------------------------------
 -- Table `user`
@@ -487,6 +485,50 @@ CREATE TABLE IF NOT EXISTS `content_categorys_has_site_content` (
     REFERENCES `site_content` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `contact`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `contact` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `sac_key` VARCHAR(300) NOT NULL,
+  `name` VARCHAR(200) NOT NULL,
+  `email` VARCHAR(200) NOT NULL,
+  `subject` VARCHAR(200) NOT NULL,
+  `message` TEXT NOT NULL,
+  `extra_information` TEXT NULL,
+  `read` TINYINT(1) NOT NULL DEFAULT 0,
+  `created_at` DATETIME NOT NULL,
+  `updated_at` DATETIME NOT NULL,
+  `deleted_at` DATETIME NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `contact_response`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `contact_response` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `message` TEXT NOT NULL,
+  `created_at` DATETIME NOT NULL,
+  `contact_id` INT NOT NULL,
+  `user_id` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_contact_response_contact1_idx` (`contact_id` ASC),
+  INDEX `fk_contact_response_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_contact_response_contact1`
+    FOREIGN KEY (`contact_id`)
+    REFERENCES `contact` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_contact_response_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE SET NULL
+    ON UPDATE SET NULL)
 ENGINE = InnoDB;
 
 

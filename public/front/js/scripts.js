@@ -682,10 +682,11 @@ jQuery(document).ready(function() {
 		fullWidth:"off",
 		fullScreen:"on"
 	});
-
-	if(jQuery(".section:eq(1)").attr("id").length){
-		jQuery(".arrow.scroll a").attr("href","#"+jQuery(".section:eq(1)").attr("id"));
-	}
+    if(jQuery(".section:eq(1)").attr("id") != undefined){
+        if(jQuery(".section:eq(1)").attr("id").length){
+            jQuery(".arrow.scroll a").attr("href","#"+jQuery(".section:eq(1)").attr("id"));
+        }
+    }
 });
 
 jQuery(window).scroll(function() {
@@ -767,30 +768,7 @@ $(document).ready(function () {
         $('.parallax').addClass('mobile');
     }
 });
-/*-----------------------------------------------------------------------------------*/
-/*	FORM
-/*-----------------------------------------------------------------------------------*/
-jQuery(document).ready(function ($) {
-    $('.forms').dcSlickForms();
-});
-$(document).ready(function () {
-    $('.comment-form input[title], .comment-form textarea, .forms textarea').each(function () {
-        if ($(this).val() === '') {
-            $(this).val($(this).attr('title'));
-        }
 
-        $(this).focus(function () {
-            if ($(this).val() == $(this).attr('title')) {
-                $(this).val('').addClass('focused');
-            }
-        });
-        $(this).blur(function () {
-            if ($(this).val() === '') {
-                $(this).val($(this).attr('title')).removeClass('focused');
-            }
-        });
-    });
-});
 /*-----------------------------------------------------------------------------------*/
 /*	DATA REL
 /*-----------------------------------------------------------------------------------*/

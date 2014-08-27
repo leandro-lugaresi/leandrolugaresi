@@ -12,7 +12,28 @@ class ContatoController extends AbstractActionController
 
     public function indexAction()
     {
+        $form = new \Front\Form\Contact();
+        $form->configure();
+        $prg     = $this->prg();
 
+        if ($prg instanceof Response) {
+            return $prg;
+        } elseif (false !== $prg) {
+
+            $form->setData($prg);
+
+            if ($form->isValid()) {
+                $data = $form->getData();
+                unset($data['security']);
+                unset($data['submit']);
+                $data['subject'] = 'Novo Contato: '.$data['name'];
+                $this->getEventManager()->trigger('sendContact', $this, array('data' => $data));
+                $this->Notification()->success('Sua mensagem foi enviada com sucesso!');
+                $form->setData(array());
+            }
+        }
+
+        return new ViewModel(array('form' => $form));
     }
 
     /**

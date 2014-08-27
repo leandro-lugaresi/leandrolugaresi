@@ -57,6 +57,23 @@ return array(
                             ),
                         ),
                     ),
+                    'contato' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route'    => 'contato',
+                            'constraints' => array(
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'category'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id'     => '[0-9]+',
+                                'page'     => '[0-9]+',
+                                'params' => '(.*)'
+                            ),
+                            'defaults' => array(
+                                'controller' => 'Front\Controller\Contato',
+                                'action'     => 'index',
+                            ),
+                        ),
+                    ),
                 ),
             ),
 
