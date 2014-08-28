@@ -29,7 +29,8 @@ class ContatoController extends AbstractActionController
                 $data['subject'] = 'Novo Contato: '.$data['name'];
                 $this->getEventManager()->trigger('sendContact', $this, array('data' => $data));
                 $this->Notification()->success('Sua mensagem foi enviada com sucesso!');
-                $form->setData(array());
+
+                return $this->redirect()->toRoute('home/contato');
             }
         }
 
