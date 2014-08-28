@@ -31,7 +31,8 @@
         //"modulus/interface-content": "0.0.*",
         "modulus/modulus-products": "0.0.*",
         //"modulus/modulus-content": "0.0.*",
-        "gedmo/doctrine-extensions": "v2.3.9"
+        "gedmo/doctrine-extensions": "v2.3.9",
+        "soflomo/purifier": ">=0.1.0"
         //"slm/google-analytics": "~0.4"
     }
 }

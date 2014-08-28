@@ -12,6 +12,7 @@ return array(
         'BjyAuthorize',
         'ZendDeveloperTools',
         'SlmMail',
+        'Soflomo\Purifier',
         'ModulusBase',
         'ModulusForm',
         'ModulusUser',
