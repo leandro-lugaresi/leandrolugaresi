@@ -1,4 +1,46 @@
 // ------------------------------
+// Header bar
+// ------------------------------
+
+$(function () {
+        $('.popovers').popover({container: 'body', trigger: 'hover', placement: 'top'}); //bootstrap's popover
+        $('.tooltips').tooltip(); //bootstrap's tooltip
+
+        $(".chathistory").niceScroll({horizrailenabled:false});  //chathistory scroll
+
+        try {
+            //Set nicescroll on notifications
+            $(".scrollthis").niceScroll({horizrailenabled:false});
+            $('.dropdown').on('shown.bs.dropdown', function () {
+                $(".scrollthis").getNiceScroll().resize();
+                $(".scrollthis").getNiceScroll().show();
+            });
+            $('.dropdown').on('hide.bs.dropdown', function ()  {
+                $(".scrollthis").getNiceScroll().hide();
+            });
+
+            $(window).scroll(function(){
+                $(".scrollthis").getNiceScroll().resize();
+            });
+        } catch(e) {}
+
+});
+
+// ------------------------------
+// Moment Time
+// ------------------------------
+
+$(function () {
+    moment.locale('pt-br');
+    $.each($('.moment-relative') , function(i) {
+        $( this ).text(moment(
+                $( this ).data('date'),
+                $( this ).data('format')
+            ).fromNow());
+    });
+});
+
+// ------------------------------
 // Sidebar Accordion Menu
 // ------------------------------
 
