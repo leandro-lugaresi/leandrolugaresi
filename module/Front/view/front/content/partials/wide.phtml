@@ -7,7 +7,7 @@
             <?php $item = $item->getFile(); ?>
             <div class="item">
                 <?php if (in_array($item->getFiletype()->getName(), array('youtube', 'vimeo'))): ?>
-                    <iframe src="<?php echo $this->videoThumb()->getEmbed($item->getPath()); ?>" ></iframe>
+                    <iframe src="<?php echo $this->videoThumb()->getEmbed($item->getPath()); ?>" style="width: 1170px; height: 600px; "></iframe>
                 <?php else: ?>
                     <img src="<?php echo $this->imageThumb($item->getPath(),1170,650); ?>" alt="<?php echo $item->getTitle(); ?>" />
                 <?php endif ?>

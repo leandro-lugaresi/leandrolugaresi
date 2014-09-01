@@ -1,0 +1,39 @@
+<div id="portfolio" class="section anchor">
+		<div class="dark-wrapper">
+			<div class="container inner">
+				<h2 class="section-title text-center">Produtos</h2>
+				<p class="lead main text-center">Aqui você encontra produtos desenvolvidos por mim ou produtos Open Source que contribuo ou pretendo contribuir.</p>
+				<div class="grid-portfolio fix-portfolio">
+					<ul class="filter">
+						<li><a class="active" href="#" data-filter="*">All</a></li>
+						<?php foreach ($this->categorys as $category): ?>
+							<li><a href="#" data-filter=".<?php echo str_replace(' ', '-', $category->getName()); ?>"><?php echo $category->getName(); ?></a></li>
+						<?php endforeach ?>
+					</ul>
+          			<!-- /filter -->
+
+          			<ul class="items">
+          				<?php foreach ($this->produtos as $item): ?>
+          					<?php
+          						$config = $this->getConfigsTemplate(get_class($item),$item->getId());
+
+      							$categorysClass .= ' '.str_replace(' ', '-', $item->getCategorys());
+          					?>
+          					<li class="item thumb <?php echo $categorysClass; ?>">
+			              		<figure>
+				              		<a target="_blank" href="<?php echo $this->url('home/produtos/visualizar', array('produto' => $item->getId())); ?>" data-contenturl="<?php echo $this->url('home/produtos/visualizar', array('produto' => $item->getId())); ?>">
+				                	<div class="text-overlay">
+					                  	<div class="info"><?php echo $item->getName(); ?></div>
+					                </div>
+					                <img src="<?php echo $this->imageThumb($item->getPhoto(),'384','288'); ?>" alt="" /> </a>
+				                </figure>
+				            </li>
+          				<?php endforeach; ?>
+          			</ul>
+          			<!-- /.items -->
+        		</div>
+        		<!-- /.portfolio -->
+      		</div>
+    	</div>
+  	</div>
+  	<!-- /#portfolio -->

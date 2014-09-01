@@ -40,6 +40,38 @@ return array(
                             ),
                         ),
                     ),
+                    'produtos' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route'    => 'produtos',
+                            'constraints' => array(
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id'     => '[0-9]+',
+                                'params' => '(.*)'
+                            ),
+                            'defaults' => array(
+                                'controller' => 'Front\Controller\Produtos',
+                                'action'     => 'index',
+                            ),
+                        ),
+                        'may_terminate' => true,
+                        'child_routes' => array(
+                            'visualizar' => array(
+                                'type' => 'Segment',
+                                'options' => array(
+                                    'route'    => '/visualizar[/:produto]',
+                                    'constraints' => array(
+                                        'id'     => '[0-9]+',
+                                        'produto' => '(.*)'
+                                    ),
+                                    'defaults' => array(
+                                        'controller' => 'Front\Controller\Produtos',
+                                        'action'     => 'view',
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
                     'blog' => array(
                         'type' => 'Segment',
                         'options' => array(
@@ -84,6 +116,7 @@ return array(
             'Front\Controller\Index' => 'Front\Controller\IndexController',
             'Front\Controller\Contato' => 'Front\Controller\ContatoController',
             'Front\Controller\Portfolio' => 'Front\Controller\PortfolioController',
+            'Front\Controller\Produtos' => 'Front\Controller\ProdutosController',
             'Front\Controller\Blog' => 'Front\Controller\BlogController',
         )
     ),

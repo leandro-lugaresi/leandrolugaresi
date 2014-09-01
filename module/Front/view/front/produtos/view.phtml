@@ -1,0 +1,78 @@
+<?php
+        $config = $this->getConfigsTemplate(get_class($this->entity),$this->entity->getId());
+        $url = $this->url('home', array(), array('force_canonical' => true));
+        $url = substr($url, 0,-1);
+
+        $this->headMeta()
+        ->appendProperty('og:title', $this->entity->getName())
+        ->appendProperty('og:description', $this->contentHelper()->abreviaString($this->entity->getDescription(),100))
+        ->appendProperty('og:image', $url.$this->entity->getPhoto());
+
+    ?>
+    <div class="pcw">
+        <div class="container inner">
+            <?php $galleryItens = $this->getGallery(get_class($this->entity),$this->entity->getId()); ?>
+
+            <?php if (!empty($galleryItens)): ?>
+            <div class="owl-carousel portfolio-slider custom-controls">
+                <?php foreach ($galleryItens as $key => $item): ?>
+                    <?php $item = $item->getFile(); ?>
+                    <div class="item">
+                        <?php if (in_array($item->getFiletype()->getName(), array('youtube', 'vimeo'))): ?>
+                            <iframe src="<?php echo $this->videoThumb()->getEmbed($item->getPath()); ?>" style="width: 1170px; height: 600px; "></iframe>
+                        <?php else: ?>
+                            <img src="<?php echo $this->imageThumb($item->getPath(),1170,650); ?>" alt="<?php echo $item->getTitle(); ?>" />
+                        <?php endif ?>
+                    </div>
+                <?php endforeach ?>
+            </div>
+            <div class="divide30"></div>
+            <?php endif; ?>
+
+            <h1 class="section-title text-center"><?php echo $this->entity->getName(); ?></h1>
+            <div class="row">
+                <div class="col-sm-8">
+                    <?php echo $this->entity->getDescription(); ?>
+                </div>
+                <!-- /.col-sm-8 -->
+                <div class="col-sm-4 lp30">
+                    <ul class="item-details">
+                        <li>
+                            <h4>Data</h4>
+                            <?php //echo $this->config->date; ?>
+                        </li>
+                        <li>
+                            <h4>Categoria</h4>
+                            <?php echo $this->entity->getCategorys()->getName(); ?>
+                        </li>
+                        <li>
+                            <h4>Cliente</h4>
+                            <?php //echo $this->config->client; ?>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.col-sm-4 -->
+            </div>
+            <!-- /.row -->
+
+        </div>
+
+    </div>
+    <!-- /.pcw -->
+    <div class="dark-wrapper">
+        <div class="container inner text-center">
+            <h1 class="share-button">Click <span class="colored">&</span> Share the Love</h1>
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+            <div class="addthis_sharing_toolbox"></div>
+            <!-- <div class="share-links">
+                <ul>
+                    <li><a class="btn share-facebook" href="#">Like</a></li>
+                    <li><a class="btn share-twitter" href="#">Tweet</a></li>
+                    <li><a class="btn share-pinterest" href="#">Pin it</a></li>
+                </ul>
+            </div> -->
+            <!-- /.share-links -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.dark-wrapper -->

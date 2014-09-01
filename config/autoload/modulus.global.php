@@ -31,6 +31,10 @@ return array(
             'ModulusProducts\Model\Products' => array(
                 'gallery' => true,
                 'metatags' => true,
+                'configTemplate' => array(
+                    'enable' => true,
+                    'form' => 'Front\Form\ProdutoTemplate',
+                ),
             ),
         ),
     ),
