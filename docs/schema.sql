@@ -532,6 +532,19 @@ CREATE TABLE IF NOT EXISTS `contact_response` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `brute_force_register`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `brute_force_register` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `ip_address` VARCHAR(45) NOT NULL,
+  `requests` INT NOT NULL DEFAULT 0,
+  `updated_at` DATETIME NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `ip_address_UNIQUE` (`ip_address` ASC))
+ENGINE = MyISAM;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

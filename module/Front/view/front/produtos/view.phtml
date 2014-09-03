@@ -33,21 +33,18 @@
             <div class="row">
                 <div class="col-sm-8">
                     <?php echo $this->entity->getDescription(); ?>
+                    <a href="<?php echo $config->urlProject; ?>" class="btn">Ver o produto</a>
                 </div>
                 <!-- /.col-sm-8 -->
                 <div class="col-sm-4 lp30">
                     <ul class="item-details">
                         <li>
                             <h4>Data</h4>
-                            <?php //echo $this->config->date; ?>
+                            <?php echo $config->date; ?>
                         </li>
                         <li>
                             <h4>Categoria</h4>
                             <?php echo $this->entity->getCategorys()->getName(); ?>
-                        </li>
-                        <li>
-                            <h4>Cliente</h4>
-                            <?php //echo $this->config->client; ?>
                         </li>
                     </ul>
                 </div>

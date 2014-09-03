@@ -17,11 +17,11 @@
           					<?php
           						$config = $this->getConfigsTemplate(get_class($item),$item->getId());
 
-      							$categorysClass .= ' '.str_replace(' ', '-', $item->getCategorys());
+      							$categorysClass = ' '.str_replace(' ', '-', $item->getCategorys()->getName());
           					?>
           					<li class="item thumb <?php echo $categorysClass; ?>">
 			              		<figure>
-				              		<a target="_blank" href="<?php echo $this->url('home/produtos/visualizar', array('produto' => $item->getId())); ?>" data-contenturl="<?php echo $this->url('home/produtos/visualizar', array('produto' => $item->getId())); ?>">
+				              		<a target="_blank" href="<?php echo $this->url('home/produtos/visualizar', array('id' => $item->getId(), 'produto' => $this->contentHelper()->toUrl($item->getName()))); ?>" data-contenturl="<?php echo $this->url('home/produtos/visualizar', array('produto' => $item->getId())); ?>">
 				                	<div class="text-overlay">
 					                  	<div class="info"><?php echo $item->getName(); ?></div>
 					                </div>

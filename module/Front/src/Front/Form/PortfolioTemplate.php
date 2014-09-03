@@ -43,6 +43,9 @@ class PortfolioTemplate extends FormDefault
                 'label' => 'Data do projeto: ',
             ),
             'type' => 'Zend\Form\Element\Date',
+            'attributes' => array(
+                'format' => "dd \'de\' MM \'de\' yy",
+            ),
         ));
 
         $this->add(array(

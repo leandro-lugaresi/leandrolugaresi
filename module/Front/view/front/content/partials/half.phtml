@@ -10,7 +10,7 @@
                         <?php if (in_array($item->getFiletype()->getName(), array('youtube', 'vimeo'))): ?>
                             <iframe src="<?php echo $this->videoThumb()->getEmbed($item->getPath()); ?>" style="width: 770px; height: 530px; "></iframe>
                         <?php else: ?>
-                            <img src="<?php echo $this->imageThumb($item->getPath(),770,530); ?>" alt="<?php echo $item->getTitle(); ?>" />
+                            <img src="<?php echo $item->getPath(); ?>" alt="<?php echo $item->getTitle(); ?>" />
                         <?php endif ?>
                     </div>
                 <?php endforeach ?>

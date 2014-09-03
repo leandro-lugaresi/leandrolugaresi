@@ -9,6 +9,7 @@ tinymce.init({
     // width: 300,
     height: 300,
     remove_script_host : false,
+    extended_valid_elements : "script[language|type|src]",
     relative_urls : false,
     plugins: [
          "advlist autolink link image lists charmap print preview hr anchor pagebreak",

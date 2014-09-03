@@ -30,7 +30,7 @@ class ProdutosController extends AbstractActionController
         $config = $this->modulusConfig()->getConfig('modulus_content');
         $repository = $this->getEntityManager()->getRepository('ModulusProducts\Entity\Products');
 
-        $entity = $repository->findOneById($this->params()->fromRoute('produto'));
+        $entity = $repository->findOneById($this->params()->fromRoute('id'));
 
         if (!is_object($entity)) {
             $response = $this->getResponse();

@@ -18,6 +18,7 @@ class BlogController extends AbstractActionController
         $config = $this->modulusConfig()->getConfig('modulus_content');
         $repository = $this->getEntityManager()->getRepository('ModulusContent\Entity\SiteContent');
         $expr = $this->getEntityManager()->getExpressionBuilder();
+        $search = $this->params()->fromQuery('s',false);
 
         $query = $repository->createQueryBuilder('posts')
                     ->innerJoin('posts.status','s')
@@ -37,6 +38,13 @@ class BlogController extends AbstractActionController
                     ->setParameter(':categoryName' , $category );
         }
 
+        if ($search) {
+            $query->andWhere($expr->orx(
+                                $expr->like('posts.title', ':search'),
+                                $expr->like('posts.text', ':search')
+                            ));
+            $query->setParameter(':search' , '%'.$search.'%' );
+        }
         $adapter = new DoctrineAdapter(new ORMPaginator($query));
         $paginator = new Paginator($adapter);
         $paginator->setDefaultItemCountPerPage(10);
@@ -46,6 +54,7 @@ class BlogController extends AbstractActionController
 
         return new ViewModel(array(
             'paginator' => $paginator,
+            'search' => $search,
             //'categorys' => $categorys,
         ));
 

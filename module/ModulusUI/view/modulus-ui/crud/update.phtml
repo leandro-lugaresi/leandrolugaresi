@@ -1,4 +1,7 @@
 <?php $this->inlineScript()->captureStart(); ?>
+		if (!filemanager){
+            var filemanager = {};
+        }
         filemanager.entity = '<?php echo get_class($this->entity); ?>';
         filemanager.entityId = '<?php echo $this->entityId; ?>';
 <?php $this->inlineScript()->captureEnd(); ?>

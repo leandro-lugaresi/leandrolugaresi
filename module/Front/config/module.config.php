@@ -59,7 +59,7 @@ return array(
                             'visualizar' => array(
                                 'type' => 'Segment',
                                 'options' => array(
-                                    'route'    => '/visualizar[/:produto]',
+                                    'route'    => '/visualizar[/:id[/:produto]]',
                                     'constraints' => array(
                                         'id'     => '[0-9]+',
                                         'produto' => '(.*)'

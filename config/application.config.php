@@ -31,6 +31,7 @@ return array(
         'ModulusCEO',
         'ModulusCache',
         'ModulusContact',
+        'ModulusSecurity',
         'Front',
     ),
     'service_manager' => array('factories' => array('Navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory')),

@@ -4,3 +4,6 @@
 [submodule "module/ModulusContact"]
 	path = module/ModulusContact
 	url = git@github.com:ZF2-Modulus/ModulusContact.git
+[submodule "module/ModulusSecurity"]
+	path = module/ModulusSecurity
+	url = git@github.com:ZF2-Modulus/ModulusSecurity.git

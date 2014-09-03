@@ -44,7 +44,7 @@
             <aside class="col-sm-4 sidebar lp30">
                 <div class="sidebox widget">
                     <form class="searchform" method="get">
-                        <input type="text" id="s2" name="s" value="type and hit enter" onfocus="this.value=''" onblur="this.value='type and hit enter'"/>
+                        <input type="text" id="s2" name="s" value="<?php echo (empty($this->search)) ? 'type and hit enter' : $this->search; ?>" onfocus="this.value=''" onblur="this.value='type and hit enter'"/>
                     </form>
                 </div>
                 <!-- /.widget -->
