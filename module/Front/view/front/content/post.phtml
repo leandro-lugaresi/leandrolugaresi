@@ -63,7 +63,8 @@
             <aside class="col-sm-4 sidebar lp30">
                 <div class="sidebox widget">
                     <form action="<?php echo $this->url('home/blog'); ?>" class="searchform" method="get">
-                        <input type="text" id="s2" name="s" value="type and hit enter" onfocus="this.value=''" onblur="this.value='type and hit enter'"/>
+                        <input type="hidden" id="s1" name="search" value="true" />
+                        <input type="text" id="s2" name="query" value="type and hit enter" onfocus="this.value=''" onblur="this.value='type and hit enter'"/>
                     </form>
                 </div>
                 <!-- /.widget -->

@@ -18,7 +18,7 @@ class BlogController extends AbstractActionController
         $config = $this->modulusConfig()->getConfig('modulus_content');
         $repository = $this->getEntityManager()->getRepository('ModulusContent\Entity\SiteContent');
         $expr = $this->getEntityManager()->getExpressionBuilder();
-        $search = $this->params()->fromQuery('s',false);
+        $search = $this->params()->fromQuery('query',false);
 
         $query = $repository->createQueryBuilder('posts')
                     ->innerJoin('posts.status','s')

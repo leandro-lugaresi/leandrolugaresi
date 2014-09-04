@@ -28,6 +28,22 @@ return array(
                     'form' => 'Front\Form\PortfolioTemplate',
                 ),
             ),
+            'ModulusContent\Controller\ContentController:1' => array(
+                'gallery' => true,
+                'metatags' => true,
+                'configTemplate' => array(
+                    'enable' => true,
+                    'form' => 'ModulusContent\Form\PagesTemplate',
+                ),
+            ),
+            'ModulusContent\Controller\ContentController:2' => array(
+                'gallery' => true,
+                'metatags' => true,
+                'configTemplate' => array(
+                    'enable' => true,
+                    'form' => 'ModulusContent\Form\PagesTemplate',
+                ),
+            ),
             'ModulusProducts\Model\Products' => array(
                 'gallery' => true,
                 'metatags' => true,
@@ -47,13 +63,16 @@ return array(
             'cache'  => 'filesystem',
             'cache_prefix' => 'pages',
             'routes'  => array(
-                //'home' => array('match_method' => 'GET'),
-                //'home/content' => array('match_method' => 'GET'),
-                // 'home/default' => array(
-                //         'match_method' => 'GET',
-                //         'exclude_match_route_params' => array(
-                //             'action' => array('ok'),
-                //         )),
+                'home' => array('match_method' => 'GET'),
+                'home/content' => array('match_method' => 'GET'),
+                'home/blog' => array(
+                        'match_method' => 'GET',
+                        'exclude_match_route_params' => array(
+                            'search' => 'true',
+                        )),
+                'home/produtos' => array('match_method' => 'GET'),
+                'home/produtos/visualizar' => array('match_method' => 'GET'),
+                'home/projetos' => array('match_method' => 'GET'),
             ),
         )
 
