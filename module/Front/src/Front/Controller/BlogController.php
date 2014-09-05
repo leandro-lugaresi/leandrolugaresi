@@ -47,7 +47,7 @@ class BlogController extends AbstractActionController
         }
         $adapter = new DoctrineAdapter(new ORMPaginator($query));
         $paginator = new Paginator($adapter);
-        $paginator->setDefaultItemCountPerPage(1);
+        $paginator->setDefaultItemCountPerPage(10);
 
         $page = (int) $this->params()->fromRoute('page',1);
         if($page) $paginator->setCurrentPageNumber($page);
