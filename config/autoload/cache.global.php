@@ -17,7 +17,7 @@ return array(
                     'filePermission' => 0666,
                     'namespaceSeparator' => '-param-',
                     'namespace' => 'file',
-                    'ttl' => '7200',
+                    'ttl' => '3600',
                 ),
             ),
             'plugins' => array('serializer'),
