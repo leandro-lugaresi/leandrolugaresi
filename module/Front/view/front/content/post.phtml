@@ -15,7 +15,7 @@
                                 <span class="categories">
                                     <?php $first = true; ?>
                                     <?php foreach ($this->entity->getContentCategorys() as $category): ?>
-                                        <?php echo (!$first) ? ', ' : ''; ?><a href="<?php echo $this->url('home/blog', array('category' =>  str_replace(' ', '-', $category->getName()) )); ?>"><?php echo $category->getName() ?></a>
+                                        <?php echo (!$first) ? ', ' : ''; ?><a href="<?php echo $this->url('home/blog', array('category' =>  urlencode($category->getName()) )); ?>"><?php echo $category->getName() ?></a>
                                         <?php $first = false; ?>
                                     <?php endforeach ?>
                                 </span>

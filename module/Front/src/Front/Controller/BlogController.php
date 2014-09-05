@@ -32,7 +32,7 @@ class BlogController extends AbstractActionController
                     ->setParameter(':deleted',false);
 
         if ($this->params()->fromRoute('category',false)) {
-            $category = str_replace('-', ' ', $this->params()->fromRoute('category',false));
+            $category = urldecode($this->params()->fromRoute('category',false));
             $query->innerJoin('posts.contentCategorys','category')
                     ->andWhere($expr->eq('category.name',':categoryName'))
                     ->setParameter(':categoryName' , $category );
@@ -47,7 +47,7 @@ class BlogController extends AbstractActionController
         }
         $adapter = new DoctrineAdapter(new ORMPaginator($query));
         $paginator = new Paginator($adapter);
-        $paginator->setDefaultItemCountPerPage(10);
+        $paginator->setDefaultItemCountPerPage(1);
 
         $page = (int) $this->params()->fromRoute('page',1);
         if($page) $paginator->setCurrentPageNumber($page);

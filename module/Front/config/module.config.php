@@ -75,10 +75,10 @@ return array(
                     'blog' => array(
                         'type' => 'Segment',
                         'options' => array(
-                            'route'    => 'blog[/category/:category][/page/:page]',
+                            'route'    => 'blog[/page/:page][/category/:category]',
                             'constraints' => array(
                                 'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'category'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'category'     => '(.*)',
                                 'id'     => '[0-9]+',
                                 'page'     => '[0-9]+',
                                 'params' => '(.*)'

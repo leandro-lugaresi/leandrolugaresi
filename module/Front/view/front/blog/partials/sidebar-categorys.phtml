@@ -4,7 +4,7 @@
     </div>
     <ul class="circled">
     <?php foreach ($categorys as $category): ?>
-        <li><a href="<?php echo $this->url('home/blog', array('category' => str_replace(' ', '-', $category[0]->getName())) ); ?>"><?php echo $category[0]->getName(). ' ('.$category['total']. ')'; ?></a></li>
+        <li><a href="<?php echo $this->url('home/blog', array('category' => urlencode($category[0]->getName()) ) ); ?>"><?php echo $category[0]->getName(). ' ('.$category['total']. ')'; ?></a></li>
     <?php endforeach ?>
     </ul>
 </div>
