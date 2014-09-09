@@ -28,14 +28,14 @@
     ?>
 
     <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/png', 'href' => $this->basePath() . '/front/images/favicon.ico'))
-                    ->appendStylesheet($this->basePath() . '/front/css/bootstrap.css')
-                    ->appendStylesheet($this->basePath() . '/front/css/settings.css')
-                    ->appendStylesheet($this->basePath() . '/front/css/owl.carousel.css')
-                    ->appendStylesheet($this->basePath() . '/front/js/google-code-prettify/prettify.css')
-                    ->appendStylesheet($this->basePath() . '/front/js/fancybox/jquery.fancybox.css')
-                    ->appendStylesheet($this->basePath() . '/front/js/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.2')
-                    ->appendStylesheet($this->basePath() . '/front/css/style.css')
-                    ->appendStylesheet($this->basePath() . '/front/css/color/red.css')
+                    ->appendStylesheet($this->basePath() . '/front/css/all.css')
+                    // ->appendStylesheet($this->basePath() . '/front/css/settings.css')
+                    // ->appendStylesheet($this->basePath() . '/front/css/owl.carousel.css')
+                    // ->appendStylesheet($this->basePath() . '/front/js/google-code-prettify/prettify.css')
+                    // ->appendStylesheet($this->basePath() . '/front/js/fancybox/jquery.fancybox.css')
+                    // ->appendStylesheet($this->basePath() . '/front/js/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.2')
+                    // ->appendStylesheet($this->basePath() . '/front/css/style.css')
+                    // ->appendStylesheet($this->basePath() . '/front/css/color/red.css')
                     ->appendStylesheet($this->basePath() . '/front/type/fontello.css')
                     ->appendStylesheet($this->basePath() . '/front/type/budicons.css')
                     ->appendStylesheet('http://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700,400italic,600italic,700italic')
@@ -122,23 +122,22 @@
     </div>
     <!-- .body-wrapper -->
     <?php
-    echo $this->inlineScript()->prependFile('/front/js/scripts.js')
-                        ->prependFile('/front/js/google-code-prettify/prettify.js')
-                        ->prependFile('/front/js/retina.js')
-                        ->prependFile('/front/js/instafeed.min.js')
-                        ->prependFile('/front/js/jquery.slickforms.js')
-                        ->prependFile('/front/js/fancybox/helpers/jquery.fancybox-media.js?v=1.0.0')
-                        ->prependFile('/front/js/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.2')
-                        ->prependFile('/front/js/jquery.fancybox.pack.js')
-                        ->prependFile('/front/js/jquery.fitvids.js')
-                        ->prependFile('/front/js/jquery.isotope.min.js')
-                        ->prependFile('/front/js/owl.carousel.min.js')
-                        ->prependFile('/front/js/jquery.easytabs.min.js')
-                        ->prependFile('/front/js/jquery.themepunch.plugins.min.js')
-                        ->prependFile('/front/js/jquery.themepunch.revolution.min.js')
-                        ->prependFile('/front/js/twitter-bootstrap-hover-dropdown.min.js')
-                        ->prependFile('/front/js/bootstrap.min.js')
-                        ->prependFile('/front/js/jquery.min.js');
+    echo $this->inlineScript()->prependFile('/front/js/all.js')
+                        // ->prependFile('/front/js/scripts.js')
+                        // ->prependFile('/front/js/google-code-prettify/prettify.js')
+                        // ->prependFile('/front/js/retina.js')
+                        // ->prependFile('/front/js/instafeed.min.js')
+                        // ->prependFile('/front/js/jquery.slickforms.js')
+                        // ->prependFile('/front/js/fancybox/helpers/jquery.fancybox-media.js?v=1.0.0')
+                        // ->prependFile('/front/js/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.2')
+                        // ->prependFile('/front/js/jquery.fancybox.pack.js')
+                        // ->prependFile('/front/js/jquery.fitvids.js')
+                        // ->prependFile('/front/js/jquery.isotope.min.js')
+                        // ->prependFile('/front/js/owl.carousel.min.js')
+                        // ->prependFile('/front/js/jquery.easytabs.min.js')
+                        // ->prependFile('/front/js/twitter-bootstrap-hover-dropdown.min.js')
+                        // ->prependFile('/front/js/bootstrap.min.js')
+                        // ->prependFile('/front/js/jquery.min.js');
     ?>
 </body>
 </html>
