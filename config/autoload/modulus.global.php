@@ -63,16 +63,16 @@ return array(
             'cache'  => 'filesystem',
             'cache_prefix' => 'pages',
             'routes'  => array(
-                'home' => array('match_method' => 'GET'),
-                'home/content' => array('match_method' => 'GET'),
-                'home/blog' => array(
-                        'match_method' => 'GET',
-                        'exclude_match_route_params' => array(
-                            'search' => 'true',
-                        )),
-                'home/produtos' => array('match_method' => 'GET'),
-                'home/produtos/visualizar' => array('match_method' => 'GET'),
-                'home/projetos' => array('match_method' => 'GET'),
+                // 'home' => array('match_method' => 'GET'),
+                // 'home/content' => array('match_method' => 'GET'),
+                // 'home/blog' => array(
+                //         'match_method' => 'GET',
+                //         'exclude_match_route_params' => array(
+                //             'search' => 'true',
+                //         )),
+                // 'home/produtos' => array('match_method' => 'GET'),
+                // 'home/produtos/visualizar' => array('match_method' => 'GET'),
+                // 'home/projetos' => array('match_method' => 'GET'),
             ),
         )
 

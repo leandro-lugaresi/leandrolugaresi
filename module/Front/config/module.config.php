@@ -4,6 +4,57 @@ namespace Front;
 
 return array(
 
+    'asset_manager' => array(
+        'resolver_configs' => array(
+            'collections' => array(
+                'front/css/all.css' => array(
+                    '/front/css/bootstrap.css',
+                    '/front/css/settings.css',
+                    '/front/css/owl.carousel.css',
+                    '/front/js/google-code-prettify/prettify.css',
+                    '/front/js/fancybox/jquery.fancybox.css',
+                    '/front/js/fancybox/helpers/jquery.fancybox-thumbs.css',
+                    '/front/css/style.css',
+                    '/front/css/color/red.css',
+                ),
+                'front/js/all.js' => array(
+                    '/front/js/jquery.min.js',
+                    '/front/js/bootstrap.min.js',
+                    '/front/js/twitter-bootstrap-hover-dropdown.min.js',
+                    '/front/js/jquery.easytabs.min.js',
+                    '/front/js/owl.carousel.min.js',
+                    '/front/js/jquery.isotope.min.js',
+                    '/front/js/jquery.fitvids.js',
+                    '/front/js/jquery.fancybox.pack.js',
+                    '/front/js/fancybox/helpers/jquery.fancybox-thumbs.js',
+                    '/front/js/fancybox/helpers/jquery.fancybox-media.js',
+                    '/front/js/jquery.slickforms.js',
+                    '/front/js/instafeed.min.js',
+                    '/front/js/retina.js',
+                    '/front/js/google-code-prettify/prettify.js',
+                    '/front/js/scripts.js',
+                ),
+            ),
+            'paths' => array(
+                __DIR__ . '/../public',
+            ),
+        ),
+        'caching' => array(
+            'front/js/all.js' => array(
+                'cache'     => 'AssetManager\\Cache\\FilePathCache',
+                'options' => array(
+                    'dir' => './data/cache', // path/to/cache
+                ),
+            ),
+            'front/css/all.css' => array(
+                'cache'     => 'AssetManager\\Cache\\FilePathCache',
+                'options' => array(
+                    'dir' => './data/cache', // path/to/cache
+                ),
+            ),
+        ),
+    ),
+
     'router' => array(
         'routes' => array(
             'home' => array(

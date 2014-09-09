@@ -11,7 +11,6 @@
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.2.*",
         "doctrine/doctrine-orm-module": "0.8.0",
-        //"hounddog/doctrine-data-fixture-module": "0.0.*",
         "zendframework/zend-developer-tools": "0.0.2",
         "zendframework/zftool": "dev-master",
         //"bjyoungblood/bjy-authorize": "1.4.*",
@@ -32,7 +31,7 @@
         "modulus/modulus-products": "0.0.*",
         //"modulus/modulus-content": "0.0.*",
         "gedmo/doctrine-extensions": "v2.3.9",
-        "soflomo/purifier": ">=0.1.0"
-        //"slm/google-analytics": "~0.4"
+        "soflomo/purifier": ">=0.1.0",
+        "rwoverdijk/assetmanager": "1.*"
     }
 }
