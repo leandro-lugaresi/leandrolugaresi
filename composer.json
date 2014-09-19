@@ -11,7 +11,7 @@
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.2.*",
         "doctrine/doctrine-orm-module": "0.8.0",
-        "zendframework/zend-developer-tools": "0.0.2",
+        "zendframework/zend-developer-tools": "dev-master",
         "zendframework/zftool": "dev-master",
         //"bjyoungblood/bjy-authorize": "1.4.*",
         //"masterexploder/PHPThumb": "2.*",
@@ -20,7 +20,7 @@
         "modulus/modulus-datatables": "0.0.*",
         "modulus/modulus-crud": "0.0.1",
         "modulus/modulus-acl": "0.0.*",
-        "modulus/modulus-user": "dev-master",
+        //"modulus/modulus-user": "dev-master",
         "modulus/modulus-config": "0.0.*",
         "modulus/modulus-ceo": "dev-master",
         "modulus/modulus-cache": "dev-master",
@@ -32,6 +32,7 @@
         //"modulus/modulus-content": "0.0.*",
         "gedmo/doctrine-extensions": "v2.3.9",
         "soflomo/purifier": ">=0.1.0",
-        "rwoverdijk/assetmanager": "1.*"
+        "rwoverdijk/assetmanager": "1.*",
+        "leandrolugaresi/google-authenticator": "dev-master"
     }
 }
