@@ -1,3 +1,5 @@
+[ ![Codeship Status for leandro-lugaresi/leandrolugaresi](https://www.codeship.io/projects/ee9e0220-2486-0132-9b2a-6a1d974c50f8/status)](https://www.codeship.io/projects/36898)
+
 Modulus CMF - SkeletonApplication
 =======================
 
