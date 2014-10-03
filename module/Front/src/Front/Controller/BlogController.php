@@ -39,6 +39,11 @@ class BlogController extends AbstractActionController
         }
 
         if ($search) {
+            $escaper = new \Zend\Escaper\Escaper('utf-8');
+            $search = $escaper->escapeHtml($search);
+            //$search = $escaper->escapeCss($search);
+            //$search = $escaper->escapeJs($search);
+
             $query->andWhere($expr->orx(
                                 $expr->like('posts.title', ':search'),
                                 $expr->like('posts.text', ':search')
