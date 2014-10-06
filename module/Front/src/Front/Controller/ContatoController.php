@@ -16,7 +16,7 @@ class ContatoController extends AbstractActionController
         $form->configure();
         $prg     = $this->prg();
 
-        if ($prg instanceof Response) {
+        if ($prg instanceof \Zend\Http\Response) {
             return $prg;
         } elseif (false !== $prg) {
 

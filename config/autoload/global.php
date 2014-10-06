@@ -38,4 +38,10 @@ return array(
             )
         )
     ),
+    'slm_mail' => array(
+        'http_options' => array(
+            'sslverifypeer' => false,
+            'persistent' => true,
+        ),
+    ),
 );

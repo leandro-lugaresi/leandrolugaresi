@@ -13,3 +13,6 @@
 [submodule "module/ModulusUser"]
 	path = module/ModulusUser
 	url = git@github.com:ZF2-Modulus/ModulusUser.git
+[submodule "module/ModulusMail"]
+	path = module/ModulusMail
+	url = git@github.com:ZF2-Modulus/ModulusMail.git

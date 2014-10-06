@@ -75,6 +75,5 @@ return array(
                 // 'home/projetos' => array('match_method' => 'GET'),
             ),
         )
-
     ),
 );
