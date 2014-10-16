@@ -7,12 +7,12 @@
 [submodule "module/ModulusSecurity"]
 	path = module/ModulusSecurity
 	url = git@github.com:ZF2-Modulus/ModulusSecurity.git
-[submodule "vendor/leandrolugaresi/google-authenticator"]
-	path = vendor/leandrolugaresi/google-authenticator
-	url = git@github.com:leandro-lugaresi/google-authenticator.git
 [submodule "module/ModulusUser"]
 	path = module/ModulusUser
 	url = git@github.com:ZF2-Modulus/ModulusUser.git
 [submodule "module/ModulusMail"]
 	path = module/ModulusMail
 	url = git@github.com:ZF2-Modulus/ModulusMail.git
+[submodule "module/ModulusLogInterface"]
+	path = module/ModulusLogInterface
+	url = git@github.com:ZF2-Modulus/ModulusLogInterface.git
