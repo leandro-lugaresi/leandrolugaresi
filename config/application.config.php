@@ -26,6 +26,7 @@ return array(
         'ModulusMail',
         'ModulusConfig',
         'ModulusLog',
+        'ModulusLogInterface',
         'ModulusContent',
         'ModulusProducts',
         'SlmGoogleAnalytics',

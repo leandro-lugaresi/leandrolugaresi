@@ -16,3 +16,6 @@
 [submodule "module/ModulusLogInterface"]
 	path = module/ModulusLogInterface
 	url = git@github.com:ZF2-Modulus/ModulusLogInterface.git
+[submodule "module/ModulusLog"]
+	path = module/ModulusLog
+	url = git@github.com:ZF2-Modulus/ModulusLog.git
