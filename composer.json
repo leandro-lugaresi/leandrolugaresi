@@ -20,7 +20,7 @@
         "modulus/modulus-config": "0.0.*",
         "modulus/modulus-ceo": "dev-master",
         "modulus/modulus-cache": "dev-master",
-        "modulus/modulus-log": "dev-master",
+        //"modulus/modulus-log": "dev-master",
         //"modulus/modulus-mail": "dev-master",
         "slm/mail": "~1.4",
         "modulus/modulus-filemanager": "dev-master",
