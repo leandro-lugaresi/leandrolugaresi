@@ -701,7 +701,7 @@ var widgetFeed = new Instafeed({
         get: 'user',
         limit: 8,
         userId: 186643039,
-        accessToken: '186643039.51524ec.c5df5476b2654a349ac19e6361f93159',
+        accessToken: '186643039.467ede5.0746dffc9bac4924b5b834ceb3b010ff',
         resolution: 'thumbnail',
         template: '<li><span class="icon-overlay"><a href="{{link}}" target="_blank"><img src="{{image}}" /></a></span></li>',
         after: function () {
