@@ -17,7 +17,7 @@ Using Composer (recommended)
 The recommended way to get a working copy of this project is to clone the repository and use `composer.phar` to install dependencies:
 
     cd my/project/dir
-    git clone git@github.com:leandro-lugaresi/ModulusSkeletonApplication.git
+    git clone --recursive https://github.com/leandro-lugaresi/leandrolugaresi.git
     cd ModulusSkeletonApplication
     php composer.phar self-update
     php composer.phar install
@@ -68,7 +68,7 @@ Edit the file `./config/autoload/global.php` and edit your doctrine configuratio
             'orm_default' => array(
                 'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
                     'params' => array(
-                    'host' => 'localhost',
+                    'host' => '127.0.0.1',
                     'port' => '3306',
                     'user' => 'user',
                     'password' => 'password123',
